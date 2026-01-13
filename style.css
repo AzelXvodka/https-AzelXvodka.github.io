@@ -5,47 +5,66 @@
 }
 
 body {
-  background: #0f0f0f;
+  background: #0b0b0b;
   color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Header */
-header {
+/* HERO */
+.hero {
   text-align: center;
-  padding: 50px 20px;
+  padding: 80px 20px;
+  background: linear-gradient(180deg, #0b0b0b, #111);
 }
 
-header h1 {
-  font-size: 36px;
+.hero h1 {
+  font-size: 42px;
   margin-bottom: 10px;
 }
 
-header p {
-  color: #aaaaaa;
+.hero p {
+  color: #b5b5b5;
+  margin-bottom: 25px;
 }
 
-/* Products */
+.hero-btn {
+  background: #00c853;
+  color: #fff;
+  padding: 14px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* PRODUCTS */
 .products {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.products h2 {
+  margin-bottom: 40px;
+  font-size: 30px;
+}
+
+.products-grid {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
-  padding: 40px 20px;
+  gap: 25px;
 }
 
 .card {
-  background: #1a1a1a;
-  width: 260px;
+  background: #151515;
+  width: 280px;
   padding: 25px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  border-radius: 14px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
   transition: transform 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
 }
 
 .card h3 {
@@ -66,22 +85,29 @@ header p {
 
 .buy {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 10px 22px;
   background: #00c853;
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
   border-radius: 6px;
-  transition: background 0.3s;
 }
 
-.buy:hover {
-  background: #00a844;
+/* CONTACT */
+.contact {
+  background: #111;
+  padding: 40px 20px;
+  text-align: center;
 }
 
-/* Footer */
+.contact a {
+  color: #00e676;
+  text-decoration: none;
+}
+
+/* FOOTER */
 footer {
   text-align: center;
   padding: 20px;
-  color: #777777;
+  color: #777;
   font-size: 14px;
 }
