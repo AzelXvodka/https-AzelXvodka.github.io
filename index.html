@@ -8,15 +8,25 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+  <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
 </head>
 <body>
 
 <!-- Loader -->
 <div class="loader">
-  <div class="loader-circle"></div>
-  <p>Initializing Azel Store...</p>
+  <div class="loader-container">
+    <div class="loader-circle"></div>
+    <div class="loader-text">
+      <span class="typing-text">Initializing Azel Store...</span>
+      <div class="loader-dots">
+        <span>.</span>
+        <span>.</span>
+        <span>.</span>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Floating Particles -->
@@ -24,55 +34,100 @@
 
 <!-- NAV -->
 <nav class="sticky-nav">
-  <h2 class="logo"><span class="logo-glow">Azel</span><span class="logo-neon">Store</span></h2>
-  <div class="nav-links">
-    <a href="#home" class="nav-link">Home</a>
-    <a href="#features" class="nav-link">Features</a>
-    <a href="#products" class="nav-link">Products</a>
-    <a href="#reviews" class="nav-link">Reviews</a>
-    <a href="https://wa.me/212682987559" class="nav-btn pulse-btn">
-      <i class="fab fa-whatsapp"></i> Contact
-    </a>
-  </div>
-  <div class="mobile-menu-btn">
-    <span></span>
-    <span></span>
-    <span></span>
+  <div class="nav-container">
+    <div class="logo">
+      <span class="logo-icon">⚡</span>
+      <h2><span class="logo-glow">AZEL</span><span class="logo-neon">STORE</span></h2>
+    </div>
+    
+    <div class="nav-links">
+      <a href="#home" class="nav-link"><i class="fas fa-home"></i> Home</a>
+      <a href="#products" class="nav-link"><i class="fas fa-shopping-cart"></i> Products</a>
+      <a href="#team" class="nav-link"><i class="fas fa-users"></i> Team</a>
+      <a href="#portfolio" class="nav-link"><i class="fas fa-briefcase"></i> Portfolio</a>
+      <a href="#reviews" class="nav-link"><i class="fas fa-star"></i> Reviews</a>
+      <a href="#contact" class="nav-btn pulse-btn">
+        <i class="fab fa-whatsapp"></i> Contact
+      </a>
+      <a href="https://discord.gg/your-link" class="nav-btn discord-btn" target="_blank">
+        <i class="fab fa-discord"></i> Discord
+      </a>
+    </div>
+    
+    <div class="mobile-menu-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
 </nav>
+
+<!-- FLASH SALE BANNER -->
+<div class="flash-banner">
+  <div class="flash-content">
+    <span class="flash-icon"><i class="fas fa-bolt"></i></span>
+    <div class="flash-text">
+      <strong>LIMITED OFFER:</strong> 30% OFF on all Anti-Cheat Systems!
+    </div>
+    <div class="countdown">
+      <span id="countdown-hours">24</span>:<span id="countdown-minutes">00</span>:<span id="countdown-seconds">00</span>
+    </div>
+    <a href="#products" class="flash-btn">SHOP NOW</a>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-glow"></div>
   <div class="hero-glow2"></div>
+  <div class="hero-glow3"></div>
   
   <div class="hero-content">
     <div class="hero-text">
-      <h1 class="neon-text flicker">AZEL <span class="neon-accent">STORE</span></h1>
-      <p class="hero-subtitle">Elite SAMP Gamemodes • Scripts • Digital Power</p>
+      <h1 class="neon-text flicker">
+        <span class="text-gradient">ULTIMATE</span> SAMP SOLUTIONS
+      </h1>
+      <p class="hero-subtitle typing-animation">
+        Elite Anti-Cheat • Premium Gamemodes • Custom Scripts • Game Tools
+      </p>
+      
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="stat-number" data-target="500">0</div>
+          <div class="stat-label">Protected Servers</div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-code"></i></div>
+          <div class="stat-number" data-target="1000">0</div>
+          <div class="stat-label">Scripts Delivered</div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-user-check"></i></div>
+          <div class="stat-number" data-target="99">0<span class="percent">%</span></div>
+          <div class="stat-label">Satisfaction Rate</div>
+        </div>
+      </div>
+      
       <div class="hero-actions">
         <a href="#products" class="btn neon-btn scan-effect">
-          <span>Explore Services</span>
-          <i class="fas fa-arrow-right"></i>
+          <i class="fas fa-gamepad"></i> Explore Products
         </a>
         <a href="https://wa.me/212682987559" class="btn ghost-btn float-effect">
-          <i class="fab fa-whatsapp"></i> WhatsApp
+          <i class="fab fa-whatsapp"></i> Custom Order
         </a>
       </div>
     </div>
     
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-number" data-count="500">0</div>
-        <div class="stat-label">Projects Delivered</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number" data-count="99">0</div>
-        <div class="stat-label">% Satisfaction</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number" data-count="24">0</div>
-        <div class="stat-label">/7 Support</div>
+    <div class="hero-visual">
+      <div class="floating-card">
+        <div class="card-content">
+          <h3><i class="fas fa-crown"></i> Most Popular</h3>
+          <p>Anti-Cheat System v5.0</p>
+          <div class="price-tag">$49.99</div>
+        </div>
       </div>
     </div>
   </div>
@@ -81,236 +136,620 @@
     <div class="mouse">
       <div class="wheel"></div>
     </div>
-    <p>Scroll Down</p>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section class="features" id="features">
-  <h2 class="section-title"><span class="title-line"></span>Why Choose Azel?<span class="title-line"></span></h2>
-  
-  <div class="features-grid">
-    <div class="feature-card shine-effect">
-      <div class="feature-icon">
-        <i class="fas fa-bolt"></i>
-      </div>
-      <h3>Ultra Fast Delivery</h3>
-      <p>Get your SAMP projects delivered within 24-48 hours with optimized performance.</p>
-    </div>
-    
-    <div class="feature-card shine-effect">
-      <div class="feature-icon">
-        <i class="fas fa-lock"></i>
-      </div>
-      <h3>Secure & Clean Code</h3>
-      <p>Professionally written, bug-free code with comprehensive documentation.</p>
-    </div>
-    
-    <div class="feature-card shine-effect">
-      <div class="feature-icon">
-        <i class="fas fa-gamepad"></i>
-      </div>
-      <h3>Gaming Optimized</h3>
-      <p>Built specifically for SA-MP with lightweight resource usage and high FPS.</p>
-    </div>
-    
-    <div class="feature-card shine-effect">
-      <div class="feature-icon">
-        <i class="fas fa-crown"></i>
-      </div>
-      <h3>Premium Support</h3>
-      <p>24/7 dedicated support with free updates and bug fixes for 6 months.</p>
-    </div>
+    <p>Scroll to Explore</p>
   </div>
 </section>
 
 <!-- PRODUCTS -->
 <section class="products" id="products">
-  <h2 class="section-title"><span class="title-line"></span>Our Premium Services<span class="title-line"></span></h2>
-  <p class="section-subtitle">Customized solutions for SA-MP servers of all sizes</p>
+  <div class="section-header">
+    <h2 class="section-title">
+      <span class="title-line"></span>
+      <span class="title-text">PREMIUM PRODUCTS</span>
+      <span class="title-line"></span>
+    </h2>
+    <p class="section-subtitle">Everything you need for a successful SA-MP server</p>
+  </div>
   
+  <!-- Product Navigation -->
+  <div class="product-categories">
+    <button class="category-btn active" data-category="all">All Products</button>
+    <button class="category-btn" data-category="anti-cheat">Anti-Cheat</button>
+    <button class="category-btn" data-category="gamemode">Gamemodes</button>
+    <button class="category-btn" data-category="tools">Tools & Hack</button>
+    <button class="category-btn" data-category="textures">Textures & Maps</button>
+  </div>
+  
+  <!-- Products Grid -->
   <div class="products-grid">
-    <div class="product-card neon-card">
+    
+    <!-- ANTI-CHEAT PRODUCTS -->
+    <div class="product-card category-anti-cheat featured">
+      <div class="card-badge">BEST SELLER</div>
       <div class="card-header">
-        <div class="card-badge">Most Popular</div>
-        <h3>SAMP Gamemode</h3>
+        <div class="card-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>Azel Anti-Cheat Pro</h3>
+        <p class="card-subtitle">Advanced Protection System</p>
       </div>
-      <div class="card-content">
-        <p>High performance gamemode with advanced systems including admin, business, housing, and vehicle systems.</p>
-        <ul class="card-features">
-          <li><i class="fas fa-check"></i> Fully Customizable</li>
-          <li><i class="fas fa-check"></i> MySQL Support</li>
-          <li><i class="fas fa-check"></i> Anti-Cheat System</li>
-          <li><i class="fas fa-check"></i> Responsive Design</li>
+      
+      <div class="card-features">
+        <ul>
+          <li><i class="fas fa-check-circle"></i> Block 50+ Cheats</li>
+          <li><i class="fas fa-check-circle"></i> Auto-Ban System</li>
+          <li><i class="fas fa-check-circle"></i> Real-time Monitoring</li>
+          <li><i class="fas fa-check-circle"></i> Admin Panel</li>
+          <li><i class="fas fa-check-circle"></i> Auto Updates</li>
         </ul>
       </div>
-      <div class="card-footer">
+      
+      <div class="card-pricing">
         <div class="price">
-          <span class="price-old">$15</span>
-          <span class="price-new">$10</span>
+          <span class="price-old">$99.99</span>
+          <span class="price-new">$49.99</span>
         </div>
-        <a href="https://wa.me/212682987559" class="order-btn glow-btn">
-          <i class="fas fa-shopping-cart"></i> Order Now
+        <div class="price-note">One-time payment</div>
+      </div>
+      
+      <div class="card-actions">
+        <a href="https://wa.me/212682987559?text=I want to buy Azel Anti-Cheat Pro" class="btn buy-btn">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </a>
+        <button class="btn details-btn">
+          <i class="fas fa-info-circle"></i> Details
+        </button>
+      </div>
+    </div>
+    
+    <div class="product-card category-anti-cheat">
+      <div class="card-badge">NEW</div>
+      <div class="card-header">
+        <div class="card-icon">
+          <i class="fas fa-user-shield"></i>
+        </div>
+        <h3>Anti-Cheat Lite</h3>
+        <p class="card-subtitle">Basic Protection</p>
+      </div>
+      
+      <div class="card-features">
+        <ul>
+          <li><i class="fas fa-check-circle"></i> Block 20+ Cheats</li>
+          <li><i class="fas fa-check-circle"></i> Manual Ban System</li>
+          <li><i class="fas fa-check-circle"></i> Basic Monitoring</li>
+          <li><i class="fas fa-check-circle"></i> Simple Admin Panel</li>
+        </ul>
+      </div>
+      
+      <div class="card-pricing">
+        <div class="price">
+          <span class="price-new">$24.99</span>
+        </div>
+        <div class="price-note">Budget Friendly</div>
+      </div>
+      
+      <div class="card-actions">
+        <a href="https://wa.me/212682987559?text=I want to buy Anti-Cheat Lite" class="btn buy-btn">
+          <i class="fas fa-shopping-cart"></i> Buy Now
         </a>
       </div>
     </div>
     
-    <div class="product-card neon-card featured">
+    <!-- GAMEMODE PRODUCTS -->
+    <div class="product-card category-gamemode">
+      <div class="card-badge">POPULAR</div>
       <div class="card-header">
-        <div class="card-badge premium">Premium</div>
-        <h3>Roleplay Gamemode</h3>
+        <div class="card-icon">
+          <i class="fas fa-gamepad"></i>
+        </div>
+        <h3>Zombie Apocalypse</h3>
+        <p class="card-subtitle">Survival Gamemode</p>
       </div>
-      <div class="card-content">
-        <p>Full RP experience with jobs, factions, dynamic systems, and advanced character progression.</p>
-        <ul class="card-features">
-          <li><i class="fas fa-check"></i> Full RP Systems</li>
-          <li><i class="fas fa-check"></i> Dynamic Economy</li>
-          <li><i class="fas fa-check"></i> Faction Wars</li>
-          <li><i class="fas fa-check"></i> 50+ Jobs & Activities</li>
+      
+      <div class="card-features">
+        <ul>
+          <li><i class="fas fa-check-circle"></i> Advanced Zombie AI</li>
+          <li><i class="fas fa-check-circle"></i> Weapon System</li>
+          <li><i class="fas fa-check-circle"></i> Survival Mechanics</li>
+          <li><i class="fas fa-check-circle"></i> Leaderboards</li>
+          <li><i class="fas fa-check-circle"></i> Custom Maps</li>
         </ul>
       </div>
-      <div class="card-footer">
+      
+      <div class="card-pricing">
         <div class="price">
-          <span class="price-old">$25</span>
-          <span class="price-new">$20</span>
+          <span class="price-new">$39.99</span>
         </div>
-        <a href="https://wa.me/212682987559" class="order-btn premium-btn">
-          <i class="fas fa-gem"></i> Order Now
+        <div class="price-note">Complete Package</div>
+      </div>
+      
+      <div class="card-actions">
+        <a href="https://wa.me/212682987559?text=I want to buy Zombie Apocalypse Gamemode" class="btn buy-btn">
+          <i class="fas fa-shopping-cart"></i> Buy Now
         </a>
       </div>
     </div>
     
-    <div class="product-card neon-card">
+    <div class="product-card category-gamemode">
       <div class="card-header">
-        <div class="card-badge">Custom</div>
-        <h3>Custom Scripts</h3>
+        <div class="card-icon">
+          <i class="fas fa-city"></i>
+        </div>
+        <h3>Roleplay Master</h3>
+        <p class="card-subtitle">Advanced RP System</p>
       </div>
-      <div class="card-content">
-        <p>Tailored scripts built exactly for your server needs, from simple filterscripts to complex systems.</p>
-        <ul class="card-features">
-          <li><i class="fas fa-check"></i> 100% Custom Code</li>
-          <li><i class="fas fa-check"></i> Fast Turnaround</li>
-          <li><i class="fas fa-check"></i> Source Code Included</li>
-          <li><i class="fas fa-check"></i> Free Installation Help</li>
+      
+      <div class="card-features">
+        <ul>
+          <li><i class="fas fa-check-circle"></i> Faction System</li>
+          <li><i class="fas fa-check-circle"></i> Business System</li>
+          <li><i class="fas fa-check-circle"></i> House System</li>
+          <li><i class="fas fa-check-circle"></i> Vehicle System</li>
+          <li><i class="fas fa-check-circle"></i> 50+ Jobs</li>
         </ul>
       </div>
-      <div class="card-footer">
+      
+      <div class="card-pricing">
         <div class="price">
-          <span class="price-from">From</span>
-          <span class="price-new">$5+</span>
+          <span class="price-new">$59.99</span>
         </div>
-        <a href="https://wa.me/212682987559" class="order-btn glow-btn">
-          <i class="fas fa-code"></i> Order Now
+        <div class="price-note">Most Complete</div>
+      </div>
+      
+      <div class="card-actions">
+        <a href="https://wa.me/212682987559?text=I want to buy Roleplay Master Gamemode" class="btn buy-btn">
+          <i class="fas fa-shopping-cart"></i> Buy Now
         </a>
+      </div>
+    </div>
+    
+    <!-- TOOLS & HACK -->
+    <div class="product-card category-tools">
+      <div class="card-badge">HOT</div>
+      <div class="card-header">
+        <div class="card-icon">
+          <i class="fas fa-tools"></i>
+        </div>
+        <h3>Admin Toolkit Pro</h3>
+        <p class="card-subtitle">Server Management</p>
+      </div>
+      
+      <div class="card-features">
+        <ul>
+          <li><i class="fas fa-check-circle"></i> Advanced Admin Commands</li>
+          <li><i class="fas fa-check-circle"></i> Player Management</li>
+          <li><i class="fas fa-check-circle"></i> Server Statistics</li>
+          <li><i class="fas fa-check-circle"></i> Auto Backups</li>
+        </ul>
+      </div>
+      
+      <div class="card-pricing">
+        <div class="price">
+          <span class="price-new">$29.99</span>
+        </div>
+        <div class="price-note">Essential Tool</div>
+      </div>
+      
+      <div class="card-actions">
+        <a href="https://wa.me/212682987559?text=I want to buy Admin Toolkit Pro" class="btn buy-btn">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </a>
+      </div>
+    </div>
+    
+    <div class="product-card category-tools">
+      <div class="card-header">
+        <div class="card-icon">
+          <i class="fas fa-magic"></i>
+        </div>
+        <h3>Script Generator</h3>
+        <p class="card-subtitle">Auto Script Creation</p>
+      </div>
+      
+      <div class="card-features">
+        <ul>
+          <li><i class="fas fa-check-circle"></i> Generate PAWN Scripts</li>
+          <li><i class="fas fa-check-circle"></i> Customizable Templates</li>
+          <li><i class="fas fa-check-circle"></i> Error Checking</li>
+          <li><i class="fas fa-check-circle"></i> Code Optimization</li>
+        </ul>
+      </div>
+      
+      <div class="card-pricing">
+        <div class="price">
+          <span class="price-new">$19.99</span>
+        </div>
+        <div class="price-note">Time Saver</div>
+      </div>
+      
+      <div class="card-actions">
+        <a href="https://wa.me/212682987559?text=I want to buy Script Generator" class="btn buy-btn">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </a>
+      </div>
+    </div>
+    
+    <!-- TEXTURES & MAPS -->
+    <div class="product-card category-textures">
+      <div class="card-badge">NEW</div>
+      <div class="card-header">
+        <div class="card-icon">
+          <i class="fas fa-mountain"></i>
+        </div>
+        <h3>HD Texture Pack</h3>
+        <p class="card-subtitle">4K Textures</p>
+      </div>
+      
+      <div class="card-features">
+        <ul>
+          <li><i class="fas fa-check-circle"></i> 500+ HD Textures</li>
+          <li><i class="fas fa-check-circle"></i> Vehicles & Weapons</li>
+          <li><i class="fas fa-check-circle"></i> Buildings & Roads</li>
+          <li><i class="fas fa-check-circle"></i> Performance Optimized</li>
+        </ul>
+      </div>
+      
+      <div class="card-pricing">
+        <div class="price">
+          <span class="price-new">$34.99</span>
+        </div>
+        <div class="price-note">Visual Upgrade</div>
+      </div>
+      
+      <div class="card-actions">
+        <a href="https://wa.me/212682987559?text=I want to buy HD Texture Pack" class="btn buy-btn">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </a>
+      </div>
+    </div>
+    
+    <div class="product-card category-textures">
+      <div class="card-header">
+        <div class="card-icon">
+          <i class="fas fa-map"></i>
+        </div>
+        <h3>Custom Maps Pack</h3>
+        <p class="card-subtitle">100+ Unique Maps</p>
+      </div>
+      
+      <div class="card-features">
+        <ul>
+          <li><i class="fas fa-check-circle"></i> Race Tracks</li>
+          <li><i class="fas fa-check-circle"></i> Stunt Maps</li>
+          <li><i class="fas fa-check-circle"></i> DM Arenas</li>
+          <li><i class="fas fa-check-circle"></i> RPG Maps</li>
+          <li><i class="fas fa-check-circle"></i> Easy Installation</li>
+        </ul>
+      </div>
+      
+      <div class="card-pricing">
+        <div class="price">
+          <span class="price-new">$29.99</span>
+        </div>
+        <div class="price-note">Map Collection</div>
+      </div>
+      
+      <div class="card-actions">
+        <a href="https://wa.me/212682987559?text=I want to buy Custom Maps Pack" class="btn buy-btn">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </a>
+      </div>
+    </div>
+    
+  </div>
+  
+  <!-- CUSTOM ORDER -->
+  <div class="custom-order">
+    <div class="order-container">
+      <div class="order-icon">
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="order-content">
+        <h3>Need Something Custom?</h3>
+        <p>We can create any script, gamemode, or tool specifically for your needs.</p>
+      </div>
+      <a href="https://wa.me/212682987559" class="order-btn pulse-btn-large">
+        <i class="fas fa-comments"></i> Request Custom Quote
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="section-header">
+    <h2 class="section-title">
+      <span class="title-line"></span>
+      <span class="title-text">MEET OUR TEAM</span>
+      <span class="title-line"></span>
+    </h2>
+    <p class="section-subtitle">The experts behind Azel Store</p>
+  </div>
+  
+  <div class="team-grid">
+    <!-- Azel -->
+    <div class="team-card">
+      <div class="team-avatar">
+        <div class="avatar-img" style="background: linear-gradient(45deg, #00ffcc, #0099ff);">
+          <span>A</span>
+        </div>
+        <div class="online-status online"></div>
+      </div>
+      
+      <div class="team-info">
+        <h3>Azel</h3>
+        <p class="team-role">Founder & Lead Developer</p>
+        <div class="team-bio">
+          <p>5+ years experience in SA-MP development. Specialized in Anti-Cheat systems and complex gamemodes.</p>
+        </div>
+        
+        <div class="team-skills">
+          <span class="skill-tag">PAWN</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">Reverse Engineering</span>
+        </div>
+        
+        <div class="team-contact">
+          <a href="https://wa.me/212682987559" class="contact-link">
+            <i class="fab fa-whatsapp"></i> Contact
+          </a>
+          <div class="experience">
+            <i class="fas fa-award"></i>
+            <span>Lead 500+ Projects</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Marco -->
+    <div class="team-card">
+      <div class="team-avatar">
+        <div class="avatar-img" style="background: linear-gradient(45deg, #ff3366, #ff0066);">
+          <span>M</span>
+        </div>
+        <div class="online-status online"></div>
+      </div>
+      
+      <div class="team-info">
+        <h3>Marco</h3>
+        <p class="team-role">Gamemode Specialist</p>
+        <div class="team-bio">
+          <p>Expert in RPG and Roleplay gamemodes. Creates immersive gaming experiences with detailed systems.</p>
+        </div>
+        
+        <div class="team-skills">
+          <span class="skill-tag">Game Design</span>
+          <span class="skill-tag">RP Systems</span>
+          <span class="skill-tag">UI/UX</span>
+          <span class="skill-tag">Lua</span>
+        </div>
+        
+        <div class="team-contact">
+          <a href="https://wa.me/212682987559" class="contact-link">
+            <i class="fab fa-whatsapp"></i> Contact
+          </a>
+          <div class="experience">
+            <i class="fas fa-award"></i>
+            <span>200+ Gamemodes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Additional Team Member -->
+    <div class="team-card">
+      <div class="team-avatar">
+        <div class="avatar-img" style="background: linear-gradient(45deg, #9933ff, #6600ff);">
+          <span>J</span>
+        </div>
+        <div class="online-status away"></div>
+      </div>
+      
+      <div class="team-info">
+        <h3>Jason</h3>
+        <p class="team-role">Tools & Script Developer</p>
+        <div class="team-bio">
+          <p>Specializes in utility tools, script generators, and performance optimization for SA-MP servers.</p>
+        </div>
+        
+        <div class="team-skills">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Automation</span>
+          <span class="skill-tag">API</span>
+        </div>
+        
+        <div class="team-contact">
+          <a href="https://wa.me/212682987559" class="contact-link">
+            <i class="fab fa-whatsapp"></i> Contact
+          </a>
+          <div class="experience">
+            <i class="fas fa-award"></i>
+            <span>100+ Tools</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="section-header">
+    <h2 class="section-title">
+      <span class="title-line"></span>
+      <span class="title-text">OUR PORTFOLIO</span>
+      <span class="title-line"></span>
+    </h2>
+    <p class="section-subtitle">Check out our recent work</p>
+  </div>
   
-  <div class="custom-offer">
-    <div class="custom-icon">
-      <i class="fas fa-star"></i>
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <div class="portfolio-img" style="background: linear-gradient(45deg, #1a1a2e, #16213e);">
+        <div class="portfolio-overlay">
+          <h4>Zombie Survival Server</h4>
+          <p>Complete gamemode with custom systems</p>
+        </div>
+        <div class="portfolio-stats">
+          <span><i class="fas fa-users"></i> 500+ Players</span>
+          <span><i class="fas fa-star"></i> 4.9 Rating</span>
+        </div>
+      </div>
+      <div class="portfolio-info">
+        <h3>Apocalypse RP</h3>
+        <p>Custom zombie AI, weapon system, and survival mechanics</p>
+      </div>
     </div>
-    <div class="custom-content">
-      <h3>Need Something Special?</h3>
-      <p>We can create fully custom solutions tailored to your exact requirements.</p>
+    
+    <div class="portfolio-item">
+      <div class="portfolio-img" style="background: linear-gradient(45deg, #2d4059, #ea5455);">
+        <div class="portfolio-overlay">
+          <h4>Race Tournament System</h4>
+          <p>Advanced racing script with tournaments</p>
+        </div>
+        <div class="portfolio-stats">
+          <span><i class="fas fa-flag-checkered"></i> 100+ Tracks</span>
+          <span><i class="fas fa-trophy"></i> Live Leaderboards</span>
+        </div>
+      </div>
+      <div class="portfolio-info">
+        <h3>Race Master Pro</h3>
+        <p>Complete racing system with anti-cheat and tournaments</p>
+      </div>
     </div>
-    <a href="https://wa.me/212682987559" class="custom-btn pulse-btn">
-      <i class="fas fa-comment-dots"></i> Request Custom Quote
-    </a>
+    
+    <div class="portfolio-item">
+      <div class="portfolio-img" style="background: linear-gradient(45deg, #0f3460, #e94560);">
+        <div class="portfolio-overlay">
+          <h4>City Roleplay Server</h4>
+          <p>Full economic RP system</p>
+        </div>
+        <div class="portfolio-stats">
+          <span><i class="fas fa-city"></i> 200+ Businesses</span>
+          <span><i class="fas fa-home"></i> 500+ Houses</span>
+        </div>
+      </div>
+      <div class="portfolio-info">
+        <h3>Metro Life RP</h3>
+        <p>Complete roleplay server with custom economy</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- REVIEWS -->
 <section class="reviews" id="reviews">
-  <h2 class="section-title"><span class="title-line"></span>Trusted by Clients<span class="title-line"></span></h2>
+  <div class="section-header">
+    <h2 class="section-title">
+      <span class="title-line"></span>
+      <span class="title-text">CLIENT REVIEWS</span>
+      <span class="title-line"></span>
+    </h2>
+    <p class="section-subtitle">What our customers say</p>
+  </div>
   
   <div class="reviews-slider">
-    <div class="review-track">
+    <div class="reviews-track">
       <div class="review-card">
         <div class="review-header">
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+          <div class="reviewer-avatar">MJ</div>
+          <div class="reviewer-info">
+            <h4>Mike Johnson</h4>
+            <p>Zombie Server Owner</p>
           </div>
-          <div class="reviewer">
-            <div class="avatar">MJ</div>
-            <div>
-              <h4>Mike Johnson</h4>
-              <p>Server Owner</p>
-            </div>
+          <div class="review-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
           </div>
         </div>
-        <p class="review-text">"Best SAMP services ever. The gamemode was delivered faster than promised and worked perfectly. Support was incredibly helpful."</p>
+        <div class="review-content">
+          <p>"Azel Anti-Cheat reduced hacking in my server by 95%! The system is incredibly effective and easy to use. Support team is always available."</p>
+        </div>
+        <div class="review-date">2 weeks ago</div>
       </div>
       
       <div class="review-card">
         <div class="review-header">
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+          <div class="reviewer-avatar">SR</div>
+          <div class="reviewer-info">
+            <h4>Sarah Roberts</h4>
+            <p>RP Server Admin</p>
           </div>
-          <div class="reviewer">
-            <div class="avatar">AL</div>
-            <div>
-              <h4>Ahmed L.</h4>
-              <p>Game Developer</p>
-            </div>
+          <div class="review-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
           </div>
         </div>
-        <p class="review-text">"Clean code & fast support. I've ordered multiple scripts and each one was perfectly optimized and well-documented."</p>
+        <div class="review-content">
+          <p>"Marco created an amazing RP gamemode for us. The systems are well-thought-out and our players love it. The code is clean and well-documented."</p>
+        </div>
+        <div class="review-date">1 month ago</div>
       </div>
       
       <div class="review-card">
         <div class="review-header">
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+          <div class="reviewer-avatar">AL</div>
+          <div class="reviewer-info">
+            <h4>Ahmed Lee</h4>
+            <p>Game Developer</p>
           </div>
-          <div class="reviewer">
-            <div class="avatar">SR</div>
-            <div>
-              <h4>Sarah R.</h4>
-              <p>Community Manager</p>
-            </div>
+          <div class="review-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
           </div>
         </div>
-        <p class="review-text">"Professional and reliable. They created a custom RP system for our server and our players love it. Highly recommended!"</p>
+        <div class="review-content">
+          <p>"The Script Generator tool saved me countless hours. It's intuitive and produces high-quality code. Worth every penny!"</p>
+        </div>
+        <div class="review-date">3 days ago</div>
       </div>
       
       <div class="review-card">
         <div class="review-header">
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+          <div class="reviewer-avatar">TK</div>
+          <div class="reviewer-info">
+            <h4>Thomas Kim</h4>
+            <p>Server Host Provider</p>
           </div>
-          <div class="reviewer">
-            <div class="avatar">TK</div>
-            <div>
-              <h4>Thomas K.</h4>
-              <p>Game Admin</p>
-            </div>
+          <div class="review-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
           </div>
         </div>
-        <p class="review-text">"The anti-cheat system they developed for us reduced hacking incidents by 90%. Worth every penny!"</p>
+        <div class="review-content">
+          <p>"I've purchased multiple products from Azel Store. Each one exceeds expectations. Their anti-cheat is the best in the market."</p>
+        </div>
+        <div class="review-date">2 months ago</div>
       </div>
     </div>
     
     <div class="slider-controls">
-      <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
-      <div class="slider-dots"></div>
-      <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+      <button class="slider-btn prev-btn">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <div class="slider-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+      <button class="slider-btn next-btn">
+        <i class="fas fa-chevron-right"></i>
+      </button>
     </div>
   </div>
 </section>
@@ -319,68 +758,89 @@
 <section class="cta">
   <div class="cta-glow"></div>
   <div class="cta-content">
-    <h2>Ready to Power Up Your Server?</h2>
-    <p>Join hundreds of satisfied server owners who trust Azel Store with their SA-MP projects.</p>
-    <a href="https://wa.me/212682987559" class="cta-btn pulse-btn-large">
-      <i class="fab fa-whatsapp"></i> Start Your Project Today
-    </a>
+    <h2>Ready to Level Up Your Server?</h2>
+    <p>Join thousands of successful server owners who trust Azel Store</p>
+    
+    <div class="cta-buttons">
+      <a href="https://wa.me/212682987559" class="cta-btn primary-btn">
+        <i class="fab fa-whatsapp"></i> Start Your Project
+      </a>
+      <a href="#products" class="cta-btn secondary-btn">
+        <i class="fas fa-eye"></i> View Products
+      </a>
+    </div>
+    
+    <div class="cta-guarantee">
+      <div class="guarantee-item">
+        <i class="fas fa-shield-alt"></i>
+        <span>30-Day Money Back</span>
+      </div>
+      <div class="guarantee-item">
+        <i class="fas fa-headset"></i>
+        <span>24/7 Support</span>
+      </div>
+      <div class="guarantee-item">
+        <i class="fas fa-sync-alt"></i>
+        <span>Free Updates</span>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact">
-  <h2 class="section-title"><span class="title-line"></span>Contact Azel<span class="title-line"></span></h2>
+<section class="contact" id="contact">
+  <div class="section-header">
+    <h2 class="section-title">
+      <span class="title-line"></span>
+      <span class="title-text">CONTACT US</span>
+      <span class="title-line"></span>
+    </h2>
+    <p class="section-subtitle">Get in touch with our team</p>
+  </div>
   
-  <div class="contact-methods">
-    <a href="https://wa.me/212682987559" class="contact-card float-effect">
+  <div class="contact-grid">
+    <div class="contact-card">
       <div class="contact-icon whatsapp">
         <i class="fab fa-whatsapp"></i>
       </div>
       <h3>WhatsApp</h3>
       <p>+212 682 987 559</p>
-      <span class="contact-action">Message Now <i class="fas fa-arrow-right"></i></span>
-    </a>
+      <a href="https://wa.me/212682987559" class="contact-link-btn" target="_blank">
+        Message Now <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
     
-    <a href="mailto:hamzavodka7@gmail.com" class="contact-card float-effect">
+    <div class="contact-card">
       <div class="contact-icon email">
         <i class="fas fa-envelope"></i>
       </div>
       <h3>Email</h3>
       <p>hamzavodka7@gmail.com</p>
-      <span class="contact-action">Send Email <i class="fas fa-arrow-right"></i></span>
-    </a>
+      <a href="mailto:hamzavodka7@gmail.com" class="contact-link-btn" target="_blank">
+        Send Email <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
     
-    <a href="https://discord.gg/65RWQQGx3" class="contact-card float-effect">
+    <div class="contact-card">
       <div class="contact-icon discord">
         <i class="fab fa-discord"></i>
       </div>
       <h3>Discord</h3>
-      <p>Join Our Server</p>
-      <span class="contact-action">Connect <i class="fas fa-arrow-right"></i></span>
-    </a>
-  </div>
-  
-  <div class="contact-info">
-    <div class="info-item">
-      <i class="fas fa-clock"></i>
-      <div>
-        <h4>Response Time</h4>
-        <p>Usually within 1 hour</p>
-      </div>
+      <p>Join Our Community</p>
+      <a href="https://discord.gg/your-link" class="contact-link-btn" target="_blank">
+        Join Server <i class="fas fa-arrow-right"></i>
+      </a>
     </div>
-    <div class="info-item">
-      <i class="fas fa-globe"></i>
-      <div>
-        <h4>Working Hours</h4>
-        <p>24/7 Support Available</p>
+    
+    <div class="contact-card">
+      <div class="contact-icon support">
+        <i class="fas fa-headset"></i>
       </div>
-    </div>
-    <div class="info-item">
-      <i class="fas fa-language"></i>
-      <div>
-        <h4>Languages</h4>
-        <p>English & Arabic</p>
-      </div>
+      <h3>Support</h3>
+      <p>24/7 Available</p>
+      <a href="https://wa.me/212682987559" class="contact-link-btn" target="_blank">
+        Get Help <i class="fas fa-arrow-right"></i>
+      </a>
     </div>
   </div>
 </section>
@@ -389,46 +849,69 @@
 <footer>
   <div class="footer-content">
     <div class="footer-brand">
-      <h2 class="logo"><span class="logo-glow">Azel</span><span class="logo-neon">Store</span></h2>
-      <p>Premium SA-MP development services since 2020</p>
+      <div class="footer-logo">
+        <span class="logo-icon">⚡</span>
+        <h3>AZEL STORE</h3>
+      </div>
+      <p class="footer-tagline">Premium SA-MP Solutions Since 2020</p>
+      
       <div class="social-links">
-        <a href="#"><i class="fab fa-discord"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="https://discord.gg/your-link" class="social-link discord" target="_blank">
+          <i class="fab fa-discord"></i>
+        </a>
+        <a href="#" class="social-link youtube" target="_blank">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="#" class="social-link github" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#" class="social-link twitter" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
       </div>
     </div>
     
     <div class="footer-links">
-      <h3>Quick Links</h3>
-      <a href="#home">Home</a>
-      <a href="#features">Features</a>
-      <a href="#products">Products</a>
+      <h4>Products</h4>
+      <a href="#products">Anti-Cheat Systems</a>
+      <a href="#products">Gamemodes</a>
+      <a href="#products">Tools & Scripts</a>
+      <a href="#products">Textures & Maps</a>
+    </div>
+    
+    <div class="footer-links">
+      <h4>Company</h4>
+      <a href="#team">Our Team</a>
+      <a href="#portfolio">Portfolio</a>
       <a href="#reviews">Reviews</a>
       <a href="#contact">Contact</a>
     </div>
     
-    <div class="footer-services">
-      <h3>Services</h3>
-      <a href="#products">Gamemodes</a>
-      <a href="#products">Scripts</a>
-      <a href="#products">Custom Development</a>
-      <a href="#products">Server Setup</a>
-      <a href="#products">Bug Fixing</a>
-    </div>
-    
     <div class="footer-newsletter">
-      <h3>Stay Updated</h3>
-      <p>Get notified about new products and offers.</p>
+      <h4>Stay Updated</h4>
+      <p>Get the latest updates on new products and offers.</p>
       <form class="newsletter-form">
         <input type="email" placeholder="Your Email" required>
-        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+        <button type="submit">
+          <i class="fas fa-paper-plane"></i>
+        </button>
       </form>
     </div>
   </div>
   
   <div class="footer-bottom">
-    <p>© 2026 Azel Store • Built with <i class="fas fa-heart"></i> for the SA-MP Community</p>
+    <div class="payment-methods">
+      <span>Accepted Payments:</span>
+      <i class="fab fa-cc-paypal"></i>
+      <i class="fab fa-cc-visa"></i>
+      <i class="fab fa-cc-mastercard"></i>
+      <i class="fas fa-money-bill-wave"></i>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2026 Azel Store. All rights reserved. | Designed with <i class="fas fa-heart"></i> for the SA-MP Community</p>
+    </div>
+    
     <div class="footer-legal">
       <a href="#">Terms of Service</a>
       <a href="#">Privacy Policy</a>
@@ -437,12 +920,37 @@
   </div>
 </footer>
 
-<!-- Back to Top Button -->
+<!-- Back to Top -->
 <button class="back-to-top">
   <i class="fas fa-chevron-up"></i>
 </button>
 
-<!-- Script -->
+<!-- Chat Widget -->
+<div class="chat-widget">
+  <button class="chat-toggle">
+    <i class="fas fa-comments"></i>
+    <span class="chat-notification">3</span>
+  </button>
+  
+  <div class="chat-container">
+    <div class="chat-header">
+      <h4><i class="fas fa-headset"></i> Support</h4>
+      <button class="chat-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="chat-body">
+      <div class="chat-message bot">
+        <p>Hi! How can I help you today?</p>
+      </div>
+    </div>
+    <div class="chat-input">
+      <input type="text" placeholder="Type your message...">
+      <button><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script src="script.js"></script>
 </body>
-  </html>
+        </html>
