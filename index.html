@@ -3,906 +3,397 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AzelHost - Free SA-MP Server Hosting</title>
+    <title>AzelHost - Free SA-MP Hosting</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0d1117;
+            color: white;
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: #161b22;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .logo i {
+            color: #00a8ff;
+        }
+        
+        .logo span {
+            color: #00a8ff;
+        }
+        
+        .nav-btn {
+            background: #00a8ff;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 120px 20px 60px;
+            text-align: center;
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #00a8ff;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            color: #8b949e;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #00a8ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-lg {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* Sections */
+        .section {
+            padding: 60px 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: white;
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .feature {
+            background: #161b22;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .feature i {
+            font-size: 2.5rem;
+            color: #00a8ff;
+            margin-bottom: 15px;
+        }
+        
+        /* Pricing Cards */
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: #161b22;
+            border-radius: 10px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .pricing-card.free {
+            border-color: #00a8ff;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00a8ff;
+            margin: 20px 0;
+        }
+        
+        /* Form */
+        .server-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #161b22;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: white;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #010409;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .features-grid,
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loader">
-        <div class="loader-content">
-            <div class="loader-spinner"></div>
-            <p>Starting AzelHost...</p>
-        </div>
-    </div>
-
-    <!-- Particles Background -->
-    <div class="particles-container"></div>
-
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-server"></i>
-                </div>
-                <h1>Azel<span class="logo-highlight">Host</span></h1>
-            </div>
-            
-            <div class="nav-menu">
-                <a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a>
-                <a href="#features" class="nav-link"><i class="fas fa-star"></i> Features</a>
-                <a href="#pricing" class="nav-link"><i class="fas fa-tags"></i> Pricing</a>
-                <a href="#create" class="nav-link"><i class="fas fa-plus-circle"></i> Create Server</a>
-                <a href="#panel" class="nav-link"><i class="fas fa-cog"></i> Panel</a>
-                <a href="#support" class="nav-link"><i class="fas fa-headset"></i> Support</a>
-            </div>
-            
-            <div class="nav-actions">
-                <a href="#" class="btn btn-login"><i class="fas fa-sign-in-alt"></i> Login</a>
-                <a href="#create" class="btn btn-primary"><i class="fas fa-rocket"></i> Get Started</a>
-                <div class="mobile-menu-btn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
+        <div class="logo">
+            <i class="fas fa-server"></i>
+            <span>AzelHost</span>
         </div>
+        <a href="#create" class="nav-btn">Create Server</a>
     </nav>
-
+    
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-background">
-            <div class="hero-glow"></div>
-            <div class="hero-glow2"></div>
-        </div>
-        
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-bolt"></i>
-                    <span>FREE SA-MP HOSTING</span>
-                </div>
-                
-                <h1 class="hero-title">
-                    <span class="title-gradient">Ultimate</span> SA-MP Server Hosting
-                </h1>
-                
-                <p class="hero-subtitle">
-                    Free hosting for SA-MP servers with premium features. 
-                    Start your server in <span class="highlight">30 seconds</span>!
-                </p>
-                
-                <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Active Servers</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">99.9%</div>
-                        <div class="stat-label">Uptime</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Support</div>
-                    </div>
-                </div>
-                
-                <div class="hero-actions">
-                    <a href="#create" class="btn btn-primary btn-lg">
-                        <i class="fas fa-play-circle"></i> Create Free Server
-                    </a>
-                    <a href="#features" class="btn btn-outline btn-lg">
-                        <i class="fas fa-eye"></i> View Features
-                    </a>
-                </div>
-                
-                <div class="hero-note">
-                    <i class="fas fa-gift"></i>
-                    <span><strong>Limited Offer:</strong> First month FREE for all new users!</span>
-                </div>
-            </div>
-            
-            <div class="hero-image">
-                <div class="server-preview">
-                    <div class="preview-header">
-                        <div class="server-status online"></div>
-                        <h4>Your SA-MP Server</h4>
-                        <div class="server-slot">100 slots</div>
-                    </div>
-                    <div class="preview-body">
-                        <div class="preview-item">
-                            <i class="fas fa-microchip"></i>
-                            <span>Intel Xeon CPU</span>
-                        </div>
-                        <div class="preview-item">
-                            <i class="fas fa-memory"></i>
-                            <span>2GB RAM</span>
-                        </div>
-                        <div class="preview-item">
-                            <i class="fas fa-hdd"></i>
-                            <span>10GB SSD</span>
-                        </div>
-                        <div class="preview-item">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>DDoS Protection</span>
-                        </div>
-                    </div>
-                    <div class="preview-footer">
-                        <button class="btn btn-small">
-                            <i class="fas fa-play"></i> Start Server
-                        </button>
-                        <button class="btn btn-small btn-outline">
-                            <i class="fas fa-cog"></i> Configure
-                        </button>
-                    </div>
-                </div>
-            </div>
+    <section class="hero">
+        <h1>Free SA-MP Server Hosting</h1>
+        <p>Start your SA-MP server in 60 seconds. No credit card required.</p>
+        <div>
+            <a href="#create" class="btn btn-lg">
+                <i class="fas fa-play-circle"></i> Create Free Server
+            </a>
+            <a href="#pricing" class="btn btn-lg">
+                <i class="fas fa-eye"></i> View Plans
+            </a>
         </div>
     </section>
-
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="section-header">
-            <h2 class="section-title">
-                <span class="title-line"></span>
-                Premium Features
-                <span class="title-line"></span>
-            </h2>
-            <p class="section-subtitle">Everything you need for a successful SA-MP server</p>
-        </div>
-        
+    
+    <!-- Features -->
+    <section class="section">
+        <h2 class="section-title">Why Choose AzelHost?</h2>
         <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-bolt"></i>
-                </div>
+            <div class="feature">
+                <i class="fas fa-bolt"></i>
                 <h3>Instant Setup</h3>
-                <p>Get your SA-MP server running in less than 60 seconds with one-click installation.</p>
+                <p>Server ready in 60 seconds</p>
             </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
                 <h3>DDoS Protection</h3>
-                <p>Advanced protection against attacks to keep your server online 24/7.</p>
+                <p>Advanced security</p>
             </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-tachometer-alt"></i>
-                </div>
-                <h3>High Performance</h3>
-                <p>Intel Xeon CPUs, NVMe SSDs, and optimized network for best gaming experience.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-gamepad"></i>
-                </div>
-                <h3>Pre-Installed Scripts</h3>
-                <p>Choose from 50+ ready-to-use gamemodes and filterscripts.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-sync-alt"></i>
-                </div>
-                <h3>Auto Backups</h3>
-                <p>Daily automatic backups to prevent data loss. Restore with one click.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-headset"></i>
-                </div>
+            <div class="feature">
+                <i class="fas fa-headset"></i>
                 <h3>24/7 Support</h3>
-                <p>Expert support team available via Discord, WhatsApp, and ticket system.</p>
+                <p>Always here to help</p>
             </div>
         </div>
     </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="section-header">
-            <h2 class="section-title">
-                <span class="title-line"></span>
-                Simple & Affordable Pricing
-                <span class="title-line"></span>
-            </h2>
-            <p class="section-subtitle">Start free, upgrade when you grow</p>
-        </div>
-        
-        <div class="pricing-tabs">
-            <button class="pricing-tab active" data-period="monthly">Monthly</button>
-            <button class="pricing-tab" data-period="yearly">Yearly (Save 20%)</button>
-        </div>
-        
-        <div class="pricing-grid">
-            <!-- FREE Plan -->
+    
+    <!-- Pricing -->
+    <section class="section" id="pricing">
+        <h2 class="section-title">Simple Pricing</h2>
+        <div class="pricing-cards">
             <div class="pricing-card free">
-                <div class="pricing-badge">FREE FOREVER</div>
-                <div class="pricing-header">
-                    <h3>Starter</h3>
-                    <div class="pricing-price">
-                        <span class="price">$0</span>
-                        <span class="period">/month</span>
-                    </div>
-                    <p>Perfect for testing and small communities</p>
-                </div>
-                
-                <div class="pricing-features">
-                    <ul>
-                        <li><i class="fas fa-check"></i> <strong>50 Player Slots</strong></li>
-                        <li><i class="fas fa-check"></i> 512MB RAM</li>
-                        <li><i class="fas fa-check"></i> 5GB SSD Storage</li>
-                        <li><i class="fas fa-check"></i> Basic DDoS Protection</li>
-                        <li><i class="fas fa-check"></i> 1 MySQL Database</li>
-                        <li><i class="fas fa-check"></i> 24/7 Server Monitoring</li>
-                        <li><i class="fas fa-check"></i> Community Support</li>
-                        <li><i class="fas fa-check"></i> 10 Pre-installed Scripts</li>
-                    </ul>
-                </div>
-                
-                <div class="pricing-action">
-                    <a href="#create" class="btn btn-primary btn-block">
-                        <i class="fas fa-play-circle"></i> Start Free Server
-                    </a>
-                    <p class="pricing-note">No credit card required</p>
-                </div>
-            </div>
-            
-            <!-- PRO Plan -->
-            <div class="pricing-card pro featured">
-                <div class="pricing-badge">MOST POPULAR</div>
-                <div class="pricing-header">
-                    <h3>Professional</h3>
-                    <div class="pricing-price">
-                        <span class="price monthly">$9.99</span>
-                        <span class="price yearly">$7.99</span>
-                        <span class="period">/month</span>
-                    </div>
-                    <p>Perfect for growing communities</p>
-                </div>
-                
-                <div class="pricing-features">
-                    <ul>
-                        <li><i class="fas fa-check"></i> <strong>200 Player Slots</strong></li>
-                        <li><i class="fas fa-check"></i> 4GB RAM</li>
-                        <li><i class="fas fa-check"></i> 50GB SSD Storage</li>
-                        <li><i class="fas fa-check"></i> Advanced DDoS Protection</li>
-                        <li><i class="fas fa-check"></i> 5 MySQL Databases</li>
-                        <li><i class="fas fa-check"></i> Auto Backups (Daily)</li>
-                        <li><i class="fas fa-check"></i> Priority Support</li>
-                        <li><i class="fas fa-check"></i> 50+ Pre-installed Scripts</li>
-                        <li><i class="fas fa-check"></i> Custom Domain</li>
-                        <li><i class="fas fa-check"></i> FTP Access</li>
-                    </ul>
-                </div>
-                
-                <div class="pricing-action">
-                    <a href="#create" class="btn btn-primary btn-block">
-                        <i class="fas fa-rocket"></i> Get Started
-                    </a>
-                    <p class="pricing-note">30-day money back guarantee</p>
-                </div>
-            </div>
-            
-            <!-- ENTERPRISE Plan -->
-            <div class="pricing-card enterprise">
-                <div class="pricing-badge">ULTIMATE</div>
-                <div class="pricing-header">
-                    <h3>Enterprise</h3>
-                    <div class="pricing-price">
-                        <span class="price monthly">$24.99</span>
-                        <span class="price yearly">$19.99</span>
-                        <span class="period">/month</span>
-                    </div>
-                    <p>For large communities and businesses</p>
-                </div>
-                
-                <div class="pricing-features">
-                    <ul>
-                        <li><i class="fas fa-check"></i> <strong>1000 Player Slots</strong></li>
-                        <li><i class="fas fa-check"></i> 16GB RAM</li>
-                        <li><i class="fas fa-check"></i> 200GB SSD Storage</li>
-                        <li><i class="fas fa-check"></i> Enterprise DDoS Protection</li>
-                        <li><i class="fas fa-check"></i> Unlimited MySQL Databases</li>
-                        <li><i class="fas fa-check"></i> Auto Backups (Hourly)</li>
-                        <li><i class="fas fa-check"></i> VIP Support (24/7 Phone)</li>
-                        <li><i class="fas fa-check"></i> All Pre-installed Scripts</li>
-                        <li><i class="fas fa-check"></i> Multiple Domains</li>
-                        <li><i class="fas fa-check"></i> Dedicated IP Address</li>
-                        <li><i class="fas fa-check"></i> Custom Gamemode Development</li>
-                        <li><i class="fas fa-check"></i> White-label Panel</li>
-                    </ul>
-                </div>
-                
-                <div class="pricing-action">
-                    <a href="#create" class="btn btn-primary btn-block">
-                        <i class="fas fa-crown"></i> Get Enterprise
-                    </a>
-                    <p class="pricing-note">Free setup & migration</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Create Server Section -->
-    <section class="create-server" id="create">
-        <div class="section-header">
-            <h2 class="section-title">
-                <span class="title-line"></span>
-                Create Your Server
-                <span class="title-line"></span>
-            </h2>
-            <p class="section-subtitle">Get your SA-MP server running in 3 easy steps</p>
-        </div>
-        
-        <div class="create-steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                    <h3>Choose Plan</h3>
-                    <p>Select from free or premium plans based on your needs</p>
-                </div>
-            </div>
-            
-            <div class="step-arrow">
-                <i class="fas fa-arrow-right"></i>
-            </div>
-            
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                    <h3>Configure Server</h3>
-                    <p>Set your server name, slots, gamemode, and other settings</p>
-                </div>
-            </div>
-            
-            <div class="step-arrow">
-                <i class="fas fa-arrow-right"></i>
-            </div>
-            
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-content">
-                    <h3>Launch & Play</h3>
-                    <p>Your server will be ready instantly. Invite your friends!</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="create-form">
-            <div class="form-header">
-                <h3>Server Configuration</h3>
-                <p>Customize your SA-MP server</p>
-            </div>
-            
-            <div class="form-body">
-                <div class="form-group">
-                    <label for="serverName">
-                        <i class="fas fa-server"></i> Server Name
-                    </label>
-                    <input type="text" id="serverName" placeholder="My Awesome SA-MP Server" value="Azel's Server">
-                </div>
-                
-                <div class="form-group">
-                    <label for="serverSlots">
-                        <i class="fas fa-users"></i> Player Slots
-                    </label>
-                    <div class="slider-container">
-                        <input type="range" id="serverSlots" min="50" max="1000" value="100" class="slider">
-                        <div class="slider-value">
-                            <span id="slotsValue">100</span> slots
-                        </div>
-                    </div>
-                    <div class="slider-ticks">
-                        <span>50</span>
-                        <span>250</span>
-                        <span>500</span>
-                        <span>750</span>
-                        <span>1000</span>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="serverGamemode">
-                        <i class="fas fa-gamepad"></i> Gamemode
-                    </label>
-                    <select id="serverGamemode">
-                        <option value="freeroam">Freeroam</option>
-                        <option value="roleplay">Roleplay</option>
-                        <option value="zombie">Zombie Survival</option>
-                        <option value="race">Race/Stunt</option>
-                        <option value="cnr">Cops n' Robbers</option>
-                        <option value="custom">Custom Gamemode</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="serverLocation">
-                        <i class="fas fa-globe"></i> Server Location
-                    </label>
-                    <div class="location-grid">
-                        <div class="location-option active" data-location="europe">
-                            <i class="fas fa-flag"></i>
-                            <span>Europe</span>
-                            <small>Germany</small>
-                        </div>
-                        <div class="location-option" data-location="usa">
-                            <i class="fas fa-flag-usa"></i>
-                            <span>USA</span>
-                            <small>New York</small>
-                        </div>
-                        <div class="location-option" data-location="asia">
-                            <i class="fas fa-globe-asia"></i>
-                            <span>Asia</span>
-                            <small>Singapore</small>
-                        </div>
-                        <div class="location-option" data-location="middleeast">
-                            <i class="fas fa-mosque"></i>
-                            <span>Middle East</span>
-                            <small>Dubai</small>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label>
-                        <i class="fas fa-plug"></i> Additional Features
-                    </label>
-                    <div class="features-checkbox">
-                        <label class="checkbox">
-                            <input type="checkbox" checked>
-                            <span class="checkmark"></span>
-                            Anti-Cheat System (+$5/month)
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                            Auto Restart on Crash
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox" checked>
-                            <span class="checkmark"></span>
-                            Daily Backups
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                            Discord Bot Integration
-                        </label>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="form-footer">
-                <div class="price-summary">
-                    <div class="summary-item">
-                        <span>Plan:</span>
-                        <span id="planPrice">Free</span>
-                    </div>
-                    <div class="summary-item">
-                        <span>Additional Features:</span>
-                        <span id="featuresPrice">$5.00</span>
-                    </div>
-                    <div class="summary-total">
-                        <span>Total Monthly:</span>
-                        <span id="totalPrice">$5.00</span>
-                    </div>
-                </div>
-                
-                <button class="btn btn-primary btn-lg btn-create">
-                    <i class="fas fa-bolt"></i> Create Server Now
+                <h3>Free Forever</h3>
+                <div class="price">$0</div>
+                <ul style="list-style: none; padding: 20px 0;">
+                    <li><i class="fas fa-check" style="color:#00a8ff"></i> 50 Player Slots</li>
+                    <li><i class="fas fa-check" style="color:#00a8ff"></i> 512MB RAM</li>
+                    <li><i class="fas fa-check" style="color:#00a8ff"></i> Basic Support</li>
+                </ul>
+                <button class="btn" onclick="createServer('free')">
+                    Start Free Server
                 </button>
-                
-                <p class="form-note">
-                    <i class="fas fa-info-circle"></i>
-                    Your server will be ready in less than 60 seconds. No payment required for free plan.
-                </p>
+            </div>
+            
+            <div class="pricing-card">
+                <h3>Professional</h3>
+                <div class="price">$9.99</div>
+                <ul style="list-style: none; padding: 20px 0;">
+                    <li><i class="fas fa-check" style="color:#00a8ff"></i> 200 Player Slots</li>
+                    <li><i class="fas fa-check" style="color:#00a8ff"></i> 4GB RAM</li>
+                    <li><i class="fas fa-check" style="color:#00a8ff"></i> Priority Support</li>
+                </ul>
+                <button class="btn" onclick="selectPlan('pro')">
+                    Choose Professional
+                </button>
             </div>
         </div>
     </section>
-
-    <!-- Control Panel Preview -->
-    <section class="panel-preview" id="panel">
-        <div class="section-header">
-            <h2 class="section-title">
-                <span class="title-line"></span>
-                Powerful Control Panel
-                <span class="title-line"></span>
-            </h2>
-            <p class="section-subtitle">Full control over your server from anywhere</p>
-        </div>
-        
-        <div class="panel-demo">
-            <div class="panel-sidebar">
-                <div class="panel-logo">
-                    <i class="fas fa-server"></i>
-                    <span>Server Panel</span>
-                </div>
-                
-                <div class="panel-menu">
-                    <a href="#" class="panel-menu-item active">
-                        <i class="fas fa-play-circle"></i>
-                        <span>Start/Stop</span>
-                    </a>
-                    <a href="#" class="panel-menu-item">
-                        <i class="fas fa-file-code"></i>
-                        <span>File Manager</span>
-                    </a>
-                    <a href="#" class="panel-menu-item">
-                        <i class="fas fa-terminal"></i>
-                        <span>Console</span>
-                    </a>
-                    <a href="#" class="panel-menu-item">
-                        <i class="fas fa-database"></i>
-                        <span>MySQL</span>
-                    </a>
-                    <a href="#" class="panel-menu-item">
-                        <i class="fas fa-users-cog"></i>
-                        <span>Players</span>
-                    </a>
-                    <a href="#" class="panel-menu-item">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Statistics</span>
-                    </a>
-                    <a href="#" class="panel-menu-item">
-                        <i class="fas fa-cog"></i>
-                        <span>Settings</span>
-                    </a>
-                </div>
+    
+    <!-- Create Server -->
+    <section class="section" id="create">
+        <h2 class="section-title">Create Your Server</h2>
+        <div class="server-form">
+            <div class="form-group">
+                <label for="serverName">
+                    <i class="fas fa-server"></i> Server Name
+                </label>
+                <input type="text" id="serverName" value="My Awesome SA-MP Server">
             </div>
             
-            <div class="panel-content">
-                <div class="panel-header">
-                    <h4>SA-MP Server Console</h4>
-                    <div class="panel-actions">
-                        <button class="btn btn-small btn-success">
-                            <i class="fas fa-play"></i> Start
-                        </button>
-                        <button class="btn btn-small btn-danger">
-                            <i class="fas fa-stop"></i> Stop
-                        </button>
-                        <button class="btn btn-small">
-                            <i class="fas fa-redo"></i> Restart
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="console-output">
-                    <div class="console-line">[12:30:45] Server started successfully!</div>
-                    <div class="console-line">[12:30:46] Loading gamemode: grandlarc.pwn</div>
-                    <div class="console-line">[12:30:47] Number of vehicle models: 77</div>
-                    <div class="console-line">[12:30:48] Players online: 5/100</div>
-                    <div class="console-line">[12:30:49] Player [1] Azel connected from 192.168.1.1</div>
-                    <div class="console-line">[12:30:50] Player [2] Marco connected from 192.168.1.2</div>
-                    <div class="console-line blinking">[12:30:51] > _</div>
-                </div>
-                
-                <div class="console-input">
-                    <input type="text" placeholder="Type RCON command here...">
-                    <button class="btn btn-small">
-                        <i class="fas fa-paper-plane"></i> Send
-                    </button>
-                </div>
-                
-                <div class="panel-stats">
-                    <div class="stat-item">
-                        <div class="stat-label">CPU Usage</div>
-                        <div class="stat-value">15%</div>
-                        <div class="stat-bar">
-                            <div class="stat-fill" style="width: 15%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="stat-item">
-                        <div class="stat-label">RAM Usage</div>
-                        <div class="stat-value">1.2GB / 4GB</div>
-                        <div class="stat-bar">
-                            <div class="stat-fill" style="width: 30%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="stat-item">
-                        <div class="stat-label">Disk Usage</div>
-                        <div class="stat-value">8GB / 50GB</div>
-                        <div class="stat-bar">
-                            <div class="stat-fill" style="width: 16%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="stat-item">
-                        <div class="stat-label">Players Online</div>
-                        <div class="stat-value">5 / 100</div>
-                        <div class="stat-bar">
-                            <div class="stat-fill" style="width: 5%"></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="form-group">
+                <label for="playerSlots">
+                    <i class="fas fa-users"></i> Player Slots: <span id="slotsValue">100</span>
+                </label>
+                <input type="range" id="playerSlots" min="50" max="500" value="100" 
+                       oninput="document.getElementById('slotsValue').textContent = this.value">
             </div>
+            
+            <button class="btn btn-lg" onclick="createCustomServer()" style="width:100%">
+                <i class="fas fa-bolt"></i> Create Server Now
+            </button>
         </div>
     </section>
-
-    <!-- Support Section -->
-    <section class="support" id="support">
-        <div class="section-header">
-            <h2 class="section-title">
-                <span class="title-line"></span>
-                24/7 Support
-                <span class="title-line"></span>
-            </h2>
-            <p class="section-subtitle">We're here to help you succeed</p>
-        </div>
-        
-        <div class="support-grid">
-            <div class="support-card">
-                <div class="support-icon discord">
-                    <i class="fab fa-discord"></i>
-                </div>
-                <h3>Discord Community</h3>
-                <p>Join our active Discord community with 1000+ members</p>
-                <a href="https://discord.gg/azelhost" class="btn btn-outline" target="_blank">
-                    <i class="fab fa-discord"></i> Join Discord
+    
+    <!-- Support -->
+    <section class="section">
+        <h2 class="section-title">Need Help?</h2>
+        <div style="text-align:center">
+            <p style="margin-bottom:20px">Contact us via:</p>
+            <div>
+                <a href="https://wa.me/212682987559" class="btn" style="background:#25D366">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
-            </div>
-            
-            <div class="support-card">
-                <div class="support-icon whatsapp">
-                    <i class="fab fa-whatsapp"></i>
-                </div>
-                <h3>WhatsApp Support</h3>
-                <p>Direct support via WhatsApp for instant help</p>
-                <a href="https://wa.me/212682987559" class="btn btn-outline" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Message Us
-                </a>
-            </div>
-            
-            <div class="support-card">
-                <div class="support-icon docs">
-                    <i class="fas fa-book"></i>
-                </div>
-                <h3>Documentation</h3>
-                <p>Comprehensive guides and tutorials</p>
-                <a href="#" class="btn btn-outline">
-                    <i class="fas fa-book-open"></i> Read Docs
-                </a>
-            </div>
-            
-            <div class="support-card">
-                <div class="support-icon ticket">
-                    <i class="fas fa-ticket-alt"></i>
-                </div>
-                <h3>Ticket System</h3>
-                <p>Submit support tickets for complex issues</p>
-                <a href="#" class="btn btn-outline">
-                    <i class="fas fa-envelope"></i> Open Ticket
+                <a href="mailto:hamzavodka7@gmail.com" class="btn" style="background:#EA4335">
+                    <i class="fas fa-envelope"></i> Email
                 </a>
             </div>
         </div>
     </section>
-
-    <!-- FAQ Section -->
-    <section class="faq">
-        <div class="section-header">
-            <h2 class="section-title">
-                <span class="title-line"></span>
-                Frequently Asked Questions
-                <span class="title-line"></span>
-            </h2>
-            <p class="section-subtitle">Find answers to common questions</p>
-        </div>
-        
-        <div class="faq-container">
-            <div class="faq-item">
-                <button class="faq-question">
-                    Is the free plan really free?
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>Yes! The free plan is completely free forever with no hidden charges. You get 50 player slots, 512MB RAM, and basic features to run your SA-MP server.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <button class="faq-question">
-                    How fast is server setup?
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>Your server is ready in under 60 seconds after you click "Create Server". We use automated deployment systems for instant setup.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <button class="faq-question">
-                    Can I upgrade my plan later?
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>Yes! You can upgrade or downgrade your plan at any time with one click. Your server data is preserved during the upgrade process.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <button class="faq-question">
-                    Do you offer money back guarantee?
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>Yes, we offer 30-day money back guarantee on all paid plans. If you're not satisfied, you'll get a full refund.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <button class="faq-question">
-                    Can I install custom gamemodes?
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>Absolutely! You have full FTP access to upload your custom gamemodes, filterscripts, and plugins on all plans.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="cta-background">
-            <div class="cta-glow"></div>
-        </div>
-        
-        <div class="cta-content">
-            <h2>Ready to Start Your SA-MP Server?</h2>
-            <p>Join thousands of server owners who trust AzelHost</p>
-            
-            <div class="cta-buttons">
-                <a href="#create" class="btn btn-primary btn-xl">
-                    <i class="fas fa-bolt"></i> Create Free Server
-                </a>
-                <a href="#pricing" class="btn btn-outline btn-xl">
-                    <i class="fas fa-eye"></i> View Plans
-                </a>
-            </div>
-            
-            <div class="cta-guarantee">
-                <div class="guarantee-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>30-Day Money Back</span>
-                </div>
-                <div class="guarantee-item">
-                    <i class="fas fa-headset"></i>
-                    <span>24/7 Support</span>
-                </div>
-                <div class="guarantee-item">
-                    <i class="fas fa-rocket"></i>
-                    <span>60-Second Setup</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <div class="footer-logo">
-                    <i class="fas fa-server"></i>
-                    <h3>Azel<span>Host</span></h3>
-                </div>
-                <p class="footer-tagline">Premium SA-MP Server Hosting Since 2024</p>
-                
-                <div class="footer-social">
-                    <a href="#" class="social-link">
-                        <i class="fab fa-discord"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="footer-links">
-                <h4>Hosting</h4>
-                <a href="#pricing">SA-MP Hosting</a>
-                <a href="#features">Features</a>
-                <a href="#create">Create Server</a>
-                <a href="#panel">Control Panel</a>
-            </div>
-            
-            <div class="footer-links">
-                <h4>Company</h4>
-                <a href="#about">About Us</a>
-                <a href="#contact">Contact</a>
-                <a href="#blog">Blog</a>
-                <a href="#status">Server Status</a>
-            </div>
-            
-            <div class="footer-links">
-                <h4>Legal</h4>
-                <a href="#terms">Terms of Service</a>
-                <a href="#privacy">Privacy Policy</a>
-                <a href="#refund">Refund Policy</a>
-                <a href="#acceptable-use">Acceptable Use</a>
-            </div>
-            
-            <div class="footer-newsletter">
-                <h4>Newsletter</h4>
-                <p>Get updates on new features and offers</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Your Email" required>
-                    <button type="submit">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <div class="payment-methods">
-                <span>We Accept:</span>
-                <i class="fab fa-cc-paypal"></i>
-                <i class="fab fa-cc-visa"></i>
-                <i class="fab fa-cc-mastercard"></i>
-                <i class="fab fa-cc-stripe"></i>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2024 AzelHost. All rights reserved. | Made with <i class="fas fa-heart"></i> for the SA-MP Community</p>
-            </div>
-        </div>
+    <footer class="footer">
+        <p>© 2024 AzelHost - Free SA-MP Hosting</p>
+        <p style="color:#8b949e; margin-top:10px">Made for the SA-MP community</p>
     </footer>
-
-    <!-- Chat Widget -->
-    <div class="chat-widget">
-        <button class="chat-toggle">
-            <i class="fas fa-comments"></i>
-            <span class="chat-badge">3</span>
-        </button>
+    
+    <script>
+        // Simple JavaScript - No Loader!
         
-        <div class="chat-container">
-            <div class="chat-header">
-                <h4><i class="fas fa-headset"></i> Support Chat</h4>
-                <button class="chat-close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
+        // Slider update
+        const slider = document.getElementById('playerSlots');
+        if (slider) {
+            slider.addEventListener('input', function() {
+                document.getElementById('slotsValue').textContent = this.value;
+            });
+        }
+        
+        // Server creation functions
+        function createServer(plan) {
+            alert(`🎉 ${plan === 'free' ? 'Free' : 'Professional'} server created!\n\nYour server will be ready in 30 seconds.`);
+        }
+        
+        function selectPlan(plan) {
+            alert(`Redirecting to ${plan} plan checkout...`);
+        }
+        
+        function createCustomServer() {
+            const name = document.getElementById('serverName').value;
+            const slots = document.getElementById('playerSlots').value;
             
-            <div class="chat-body">
-                <div class="chat-message bot">
-                    <div class="message-content">
-                        <p>Hello! 👋 How can I help you today?</p>
-                    </div>
-                </div>
-            </div>
+            // Show loading on button
+            const btn = event.target;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating...';
+            btn.disabled = true;
             
-            <div class="chat-input">
-                <input type="text" placeholder="Type your message...">
-                <button class="chat-send">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Back to Top -->
-    <button class="back-to-top">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
+            // Simulate creation
+            setTimeout(() => {
+                alert(`✅ Server Created!\n\nName: ${name}\nSlots: ${slots}\nStatus: Starting...\n\nYour server will be ready in 30 seconds.`);
+                
+                // Reset button
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 1500);
+        }
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const target = document.querySelector(targetId);
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        console.log('AzelHost loaded successfully!');
+    </script>
 </body>
 </html>
-        
