@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 إنشاء حساب - AzelHost</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* أنماط إضافية لصفحة التسجيل */
+        .register-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0a0a0a 0%, #050505 100%);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .register-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--neon-purple) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            filter: blur(120px);
+            opacity: 0.05;
+            animation: glow-pulse 4s infinite alternate;
+        }
+        
+        .register-container {
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .register-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 0, 255, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .register-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 0, 255, 0.3);
+        }
+        
+        .register-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .register-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .register-logo i {
+            color: var(--neon-purple);
+            font-size: 3rem;
+        }
+        
+        .register-logo h1 {
+            font-size: 2.5rem;
+        }
+        
+        .register-logo .neon-text {
+            color: var(--neon-purple);
+            text-shadow: 0 0 10px var(--neon-purple);
+        }
+        
+        .register-header p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+        
+        .register-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .input-group {
+            position: relative;
+        }
+        
+        .input-group i {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-gray);
+            transition: color 0.3s;
+        }
+        
+        .register-form input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .register-form input:focus {
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+            outline: none;
+        }
+        
+        .register-form input:focus + i {
+            color: var(--neon-purple);
+        }
+        
+        .password-strength {
+            margin-top: 0.5rem;
+        }
+        
+        .strength-bar {
+            height: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+        
+        .strength-fill {
+            height: 100%;
+            width: 0%;
+            background: #ff0000;
+            transition: width 0.3s, background 0.3s;
+        }
+        
+        .strength-fill.weak {
+            width: 33%;
+            background: #ff0000;
+        }
+        
+        .strength-fill.medium {
+            width: 66%;
+            background: #ffff00;
+        }
+        
+        .strength-fill.strong {
+            width: 100%;
+            background: #00ff00;
+        }
+        
+        .strength-text {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-top: 0.5rem;
+        }
+        
+        .terms {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            color: var(--text-gray);
+        }
+        
+        .terms input {
+            margin-top: 0.3rem;
+        }
+        
+        .terms a {
+            color: var(--neon-purple);
+            text-decoration: none;
+        }
+        
+        .terms a:hover {
+            text-decoration: underline;
+        }
+        
+        .register-btn {
+            margin-top: 1rem;
+        }
+        
+        .register-footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .back-home {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: var(--neon-purple);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .back-home:hover {
+            color: var(--neon-cyan);
+        }
+        
+        @media (max-width: 768px) {
+            .register-card {
+                padding: 2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="register-page">
+        <div class="register-glow"></div>
+        
+        <div class="register-container">
+            <div class="register-card">
+                <div class="register-header">
+                    <div class="register-logo">
+                        <i class="fas fa-user-plus"></i>
+                        <h1><span class="neon-text">إنشاء حساب</span></h1>
+                    </div>
+                    <p>انضم إلينا واستمتع بأفضل استضافة SA-MP</p>
+                </div>
+                
+                <form class="register-form" id="registerForm">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <input type="text" id="firstname" placeholder="الاسم الأول" required>
+                            <i class="fas fa-user"></i>
+                        </div>
+                        
+                        <div class="input-group">
+                            <input type="text" id="lastname" placeholder="الاسم الأخير" required>
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="text" id="username" placeholder="اسم المستخدم" required>
+                        <i class="fas fa-at"></i>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="password" id="password" placeholder="كلمة المرور" required>
+                        <i class="fas fa-lock"></i>
+                        <div class="password-toggle" style="right: 3rem; cursor: pointer;">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="password-strength">
+                        <div class="strength-bar">
+                            <div class="strength-fill" id="strengthFill"></div>
+                        </div>
+                        <div class="strength-text" id="strengthText">قوة كلمة المرور: ضعيفة</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="password" id="confirmPassword" placeholder="تأكيد كلمة المرور" required>
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    
+                    <div class="terms">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">
+                            أوافق على <a href="#">شروط الخدمة</a> و <a href="#">سياسة الخصوصية</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn neon-btn full-width register-btn" style="background: var(--neon-purple);">
+                        <i class="fas fa-user-plus"></i> إنشاء حساب
+                    </button>
+                </form>
+                
+                <div class="register-footer">
+                    <p>لديك حساب بالفعل؟ <a href="login.html" class="link">سجل الدخول</a></p>
+                    
+                    <a href="index.html" class="back-home">
+                        <i class="fas fa-arrow-right"></i>
+                        العودة للصفحة الرئيسية
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // كود خاص بصفحة التسجيل
+        document.addEventListener('DOMContentLoaded', function() {
+            // إخفاء شاشة التحميل
+            const loader = document.querySelector('.loader');
+            if (loader) loader.style.display = 'none';
+            
+            // تبديل رؤية كلمة المرور
+            const passwordToggle = document.querySelector('.password-toggle');
+            const passwordInput = document.getElementById('password');
+            
+            if (passwordToggle && passwordInput) {
+                passwordToggle.addEventListener('click', function() {
+                    const icon = this.querySelector('i');
+                    if (passwordInput.type === 'password') {
+                        passwordInput.type = 'text';
+                        icon.classList.remove('fa-eye');
+                        icon.classList.add('fa-eye-slash');
+                    } else {
+                        passwordInput.type = 'password';
+                        icon.classList.remove('fa-eye-slash');
+                        icon.classList.add('fa-eye');
+                    }
+                });
+            }
+            
+            // قياس قوة كلمة المرور
+            const passwordField = document.getElementById('password');
+            const strengthFill = document.getElementById('strengthFill');
+            const strengthText = document.getElementById('strengthText');
+            
+            if (passwordField && strengthFill && strengthText) {
+                passwordField.addEventListener('input', function() {
+                    const password = this.value;
+                    let strength = 0;
+                    
+                    // قواعد قوة كلمة المرور
+                    if (password.length >= 8) strength++;
+                    if (/[A-Z]/.test(password)) strength++;
+                    if (/[0-9]/.test(password)) strength++;
+                    if (/[^A-Za-z0-9]/.test(password)) strength++;
+                    
+                    // تحديث شريط القوة
+                    strengthFill.className = 'strength-fill';
+                    if (password.length === 0) {
+                        strengthFill.style.width = '0%';
+                        strengthText.textContent = 'قوة كلمة المرور: ضعيفة';
+                    } else if (strength <= 1) {
+                        strengthFill.classList.add('weak');
+                        strengthText.textContent = 'قوة كلمة المرور: ضعيفة';
+                    } else if (strength <= 3) {
+                        strengthFill.classList.add('medium');
+                        strengthText.textContent = 'قوة كلمة المرور: متوسطة';
+                    } else {
+                        strengthFill.classList.add('strong');
+                        strengthText.textContent = 'قوة كلمة المرور: قوية';
+                    }
+                });
+            }
+            
+            // معالجة التسجيل
+            const registerForm = document.getElementById('registerForm');
+            if (registerForm) {
+                registerForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const firstname = document.getElementById('firstname').value;
+                    const lastname = document.getElementById('lastname').value;
+                    const username = document.getElementById('username').value;
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('password').value;
+                    const confirmPassword = document.getElementById('confirmPassword').value;
+                    const terms = document.getElementById('terms').checked;
+                    
+                    // التحقق من المدخلات
+                    if (!firstname || !lastname || !username || !email || !password || !confirmPassword) {
+                        showNotification('⚠️ الرجاء ملء جميع الحقول', 'warning');
+                        return;
+                    }
+                    
+                    if (!terms) {
+                        showNotification('⚠️ يجب الموافقة على الشروط والأحكام', 'warning');
+                        return;
+                    }
+                    
+                    if (password !== confirmPassword) {
+                        showNotification('⚠️ كلمات المرور غير متطابقة', 'error');
+                        return;
+                    }
+                    
+                    if (password.length < 6) {
+                        showNotification('⚠️ كلمة المرور يجب أن تكون 6 أحرف على الأقل', 'warning');
+                        return;
+                    }
+                    
+                    // محاكاة التسجيل
+                    simulateRegister(firstname, lastname, username, email, password);
+                });
+            }
+            
+            // التحقق من وجود مستخدم مسجل مسبقاً
+            checkLoginStatus();
+        });
+        
+        function simulateRegister(firstname, lastname, username, email, password) {
+            showLoading('جاري إنشاء حسابك...');
+            
+            setTimeout(() => {
+                // التحقق إذا كان الحساب موجوداً
+                const existingUser = localStorage.getItem('azelhost_user');
+                if (existingUser) {
+                    showNotification('⚠️ هذا الحساب مسجل مسبقاً', 'warning');
+                    return;
+                }
+                
+                // إنشاء حساب جديد
+                const newUser = {
+                    firstname: firstname,
+                    lastname: lastname,
+                    username: username,
+                    email: email,
+                    isLoggedIn: true,
+                    plan: 'free',
+                    servers: [],
+                    balance: 0,
+                    joinDate: new Date().toLocaleDateString()
+                };
+                
+                localStorage.setItem('azelhost_user', JSON.stringify(newUser));
+                
+                showNotification('🎉 تم إنشاء حسابك بنجاح!', 'success');
+                
+                // توجيه إلى لوحة التحكم
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 1500);
+                
+            }, 2000);
+        }
+        
+        function showNotification(message, type = 'info') {
+            // نفس دالة الإشعارات في script.js
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : 
+                                      type === 'error' ? 'exclamation-circle' : 
+                                      type === 'warning' ? 'exclamation-triangle' : 'info-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+                <button class="notification-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: rgba(0, 0, 0, 0.9);
+                border: 1px solid ${type === 'success' ? '#00ff00' : 
+                                 type === 'error' ? '#ff0000' : 
+                                 type === 'warning' ? '#ffff00' : '#00aaff'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1rem;
+                z-index: 9999;
+                animation: slideIn 0.3s ease;
+                max-width: 400px;
+                backdrop-filter: blur(10px);
+            `;
+            
+            document.body.appendChild(notification);
+            
+            const closeBtn = notification.querySelector('.notification-close');
+            closeBtn.addEventListener('click', () => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            });
+            
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, 5000);
+        }
+        
+        function showLoading(message = 'جاري المعالجة...') {
+            const loading = document.createElement('div');
+            loading.className = 'loading-overlay';
+            loading.innerHTML = `
+                <div class="loading-content">
+                    <div class="loader-spinner"></div>
+                    <p>${message}</p>
+                </div>
+            `;
+            
+            loading.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+            `;
+            
+            document.body.appendChild(loading);
+            return loading;
+        }
+    </script>
+</body>
+</html>
