@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AzelHost Admin Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00a8ff;
+            --danger: #ff6b6b;
+            --success: #00b894;
+            --warning: #fdcb6e;
+            --dark: #0d1117;
+            --darker: #010409;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: var(--darker);
+            color: white;
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: var(--dark);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .logo i {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .menu {
+            flex: 1;
+        }
+        
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            margin-bottom: 5px;
+            border-radius: 8px;
+            color: #aaa;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .menu-item:hover,
+        .menu-item.active {
+            background: rgba(0, 168, 255, 0.1);
+            color: var(--primary);
+        }
+        
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: var(--dark);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .stat-card i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card.income i { color: var(--success); }
+        .stat-card.users i { color: var(--primary); }
+        .stat-card.servers i { color: var(--warning); }
+        .stat-card.active i { color: #9c88ff; }
+        
+        .table {
+            background: var(--dark);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .status {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .status.active {
+            background: rgba(0, 184, 148, 0.2);
+            color: var(--success);
+        }
+        
+        .status.suspended {
+            background: rgba(253, 203, 110, 0.2);
+            color: var(--warning);
+        }
+        
+        .btn {
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-shield-alt"></i>
+            <h2>AzelHost Admin</h2>
+        </div>
+        
+        <div class="menu">
+            <a href="#" class="menu-item active">
+                <i class="fas fa-tachometer-alt"></i>
+                Dashboard
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-server"></i>
+                All Servers
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-users"></i>
+                Users
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-credit-card"></i>
+                Payments
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-cog"></i>
+                Settings
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-headset"></i>
+                Support Tickets
+            </a>
+        </div>
+        
+        <div class="user">
+            <div class="menu-item">
+                <i class="fas fa-user"></i>
+                Azel (Admin)
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <div class="header">
+            <h1>Admin Dashboard</h1>
+            <div class="date">Today: <span id="currentDate"></span></div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card income">
+                <i class="fas fa-dollar-sign"></i>
+                <h3>$1,250</h3>
+                <p>Monthly Income</p>
+            </div>
+            
+            <div class="stat-card users">
+                <i class="fas fa-users"></i>
+                <h3>156</h3>
+                <p>Active Users</p>
+            </div>
+            
+            <div class="stat-card servers">
+                <i class="fas fa-server"></i>
+                <h3>48</h3>
+                <p>Running Servers</p>
+            </div>
+            
+            <div class="stat-card active">
+                <i class="fas fa-chart-line"></i>
+                <h3>92%</h3>
+                <p>Uptime</p>
+            </div>
+        </div>
+        
+        <div class="table">
+            <h3 style="padding: 20px; margin: 0;">Recent Servers</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Server Name</th>
+                        <th>User</th>
+                        <th>Plan</th>
+                        <th>Status</th>
+                        <th>Created</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>My RPG Server</td>
+                        <td>john@example.com</td>
+                        <td>Professional</td>
+                        <td><span class="status active">Active</span></td>
+                        <td>2024-01-15</td>
+                        <td>
+                            <button class="btn btn-primary">Manage</button>
+                            <button class="btn btn-danger">Stop</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Zombie Survival</td>
+                        <td>mike@example.com</td>
+                        <td>Free</td>
+                        <td><span class="status active">Active</span></td>
+                        <td>2024-01-14</td>
+                        <td>
+                            <button class="btn btn-primary">Manage</button>
+                            <button class="btn btn-danger">Stop</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Race Tournament</td>
+                        <td>sarah@example.com</td>
+                        <td>Enterprise</td>
+                        <td><span class="status suspended">Suspended</span></td>
+                        <td>2024-01-10</td>
+                        <td>
+                            <button class="btn btn-primary">Manage</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+        // Set current date
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString();
+        
+        // Admin panel functionality
+        console.log('Admin Panel Loaded');
+        
+        // Simulate real-time updates
+        setInterval(() => {
+            // Update stats randomly (for demo)
+            const stats = document.querySelectorAll('.stat-card h3');
+            stats.forEach(stat => {
+                const current = parseInt(stat.textContent.replace(/[^0-9]/g, ''));
+                const change = Math.floor(Math.random() * 10) - 2;
+                const newValue = Math.max(0, current + change);
+                stat.textContent = stat.textContent.replace(current, newValue);
+            });
+        }, 5000);
+    </script>
+</body>
+                  </html>
