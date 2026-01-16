@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - LEGEND HOSTING</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body class="dark-mode">
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader">
+            <div class="crown">
+                <i class="fas fa-crown"></i>
+            </div>
+            <p>جاري تحميل لوحة التحكم...</p>
+        </div>
+    </div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Auth Container -->
+    <div class="auth-container">
+        <!-- Left Side - Branding -->
+        <div class="auth-left">
+            <div class="auth-brand">
+                <a href="index.html" class="auth-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h1>LEGEND<span>HOSTING</span></h1>
+                </a>
+                <p class="auth-tagline">استضافة خارقة لمستقبل رقمي أفضل</p>
+            </div>
+
+            <div class="auth-features">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <div>
+                        <h3>سرعة خارقة</h3>
+                        <p>أسرع خوادم في المنطقة العربية</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <h3>أمان متقدم</h3>
+                        <p>حماية متعددة الطبقات لبياناتك</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-headset"></i>
+                    <div>
+                        <h3>دعم 24/7</h3>
+                        <p>فريق دعم فني عربي متخصص</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="auth-stats">
+                <div class="stat">
+                    <h3>12,400+</h3>
+                    <p>عميل راضي</p>
+                </div>
+                <div class="stat">
+                    <h3>99.9%</h3>
+                    <p>وقت تشغيل</p>
+                </div>
+                <div class="stat">
+                    <h3>24/7</h3>
+                    <p>دعم فني</p>
+                </div>
+            </div>
+
+            <div class="auth-quote">
+                <i class="fas fa-quote-right"></i>
+                <p>"أفضل تجربة استضافة عربية جربتها على الإطلاق"</p>
+                <span>- أحمد محمد، مدير تقني</span>
+            </div>
+        </div>
+
+        <!-- Right Side - Login Form -->
+        <div class="auth-right">
+            <div class="auth-card">
+                <!-- Login Header -->
+                <div class="auth-header">
+                    <h2>مرحباً بعودتك! 👋</h2>
+                    <p>سجل دخولك للوصول إلى لوحة التحكم الخاصة بك</p>
+                </div>
+
+                <!-- Login Form -->
+                <form class="auth-form" id="loginForm">
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            <i class="fas fa-envelope"></i>
+                            البريد الإلكتروني
+                        </label>
+                        <div class="input-group">
+                            <input type="email" id="email" name="email" class="form-control" 
+                                   placeholder="example@legend.com" required>
+                            <div class="input-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="form-hint">أدخل البريد الإلكتروني المسجل لدينا</div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <div class="form-label-row">
+                            <label for="password" class="form-label">
+                                <i class="fas fa-lock"></i>
+                                كلمة المرور
+                            </label>
+                            <a href="#forgot-password" class="forgot-password" id="forgotPassword">
+                                نسيت كلمة المرور؟
+                            </a>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" id="password" name="password" class="form-control" 
+                                   placeholder="أدخل كلمة المرور" required>
+                            <div class="input-icon">
+                                <i class="fas fa-key"></i>
+                            </div>
+                            <button type="button" class="password-toggle" id="passwordToggle">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="password-strength">
+                            <div class="strength-bar">
+                                <div class="strength-fill" style="width: 80%"></div>
+                            </div>
+                            <span class="strength-text">قوية</span>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me & 2FA -->
+                    <div class="form-row">
+                        <div class="form-check">
+                            <input type="checkbox" id="remember" name="remember" class="form-check-input">
+                            <label for="remember" class="form-check-label">تذكرني</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input type="checkbox" id="twoFactor" name="twoFactor" class="form-check-input" checked>
+                            <label for="twoFactor" class="form-check-label">
+                                <i class="fas fa-shield-alt"></i>
+                                التحقق بخطوتين
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Login Button -->
+                    <button type="submit" class="btn btn-primary btn-block btn-lg" id="loginBtn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        تسجيل الدخول
+                        <span class="btn-loading" id="btnLoading">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </span>
+                    </button>
+
+                    <!-- Divider -->
+                    <div class="divider">
+                        <span>أو</span>
+                    </div>
+
+                    <!-- Social Login -->
+                    <div class="social-login">
+                        <p class="social-title">سجل الدخول باستخدام</p>
+                        <div class="social-buttons">
+                            <button type="button" class="social-btn google">
+                                <i class="fab fa-google"></i>
+                                Google
+                            </button>
+                            <button type="button" class="social-btn github">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </button>
+                            <button type="button" class="social-btn twitter">
+                                <i class="fab fa-twitter"></i>
+                                Twitter
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Sign Up Link -->
+                    <div class="auth-footer">
+                        <p>ليس لديك حساب؟ <a href="register.html" class="auth-link">أنشئ حساباً مجاناً</a></p>
+                        <a href="index.html" class="back-home">
+                            <i class="fas fa-arrow-right"></i>
+                            العودة إلى الرئيسية
+                        </a>
+                    </div>
+                </form>
+
+                <!-- 2FA Modal (Hidden by default) -->
+                <div class="modal twofa-modal" id="twofaModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3><i class="fas fa-shield-alt"></i> التحقق بخطوتين</h3>
+                            <button type="button" class="modal-close" id="closeTwofa">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>لقد أرسلنا رمز التحقق إلى بريدك الإلكتروني</p>
+                            <div class="twofa-code">
+                                <input type="text" maxlength="1" class="code-input" autofocus>
+                                <input type="text" maxlength="1" class="code-input">
+                                <input type="text" maxlength="1" class="code-input">
+                                <input type="text" maxlength="1" class="code-input">
+                                <input type="text" maxlength="1" class="code-input">
+                                <input type="text" maxlength="1" class="code-input">
+                            </div>
+                            <button type="button" class="btn btn-primary btn-block" id="verifyCode">
+                                تأكيد الرمز
+                            </button>
+                            <div class="twofa-actions">
+                                <a href="#" class="resend-code" id="resendCode">
+                                    <i class="fas fa-redo"></i>
+                                    إعادة إرسال الرمز
+                                </a>
+                                <span class="countdown" id="countdown">(60)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Forgot Password Modal -->
+                <div class="modal forgot-modal" id="forgotModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3><i class="fas fa-key"></i> استعادة كلمة المرور</h3>
+                            <button type="button" class="modal-close" id="closeForgot">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>أدخل بريدك الإلكتروني وسنرسل لك رابطاً لإعادة تعيين كلمة المرور</p>
+                            <div class="form-group">
+                                <input type="email" id="resetEmail" class="form-control" 
+                                       placeholder="example@legend.com">
+                            </div>
+                            <button type="button" class="btn btn-primary btn-block" id="sendReset">
+                                <i class="fas fa-paper-plane"></i>
+                                إرسال رابط الاستعادة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Badges -->
+            <div class="security-badges">
+                <div class="badge">
+                    <i class="fas fa-lock"></i>
+                    <span>آمن 256-bit SSL</span>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>حماية DDoS</span>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-user-shield"></i>
+                    <span>خصوصية كاملة</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Particles -->
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Login Page Specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Password Toggle
+            const passwordToggle = document.getElementById('passwordToggle');
+            const passwordInput = document.getElementById('password');
+            
+            if (passwordToggle && passwordInput) {
+                passwordToggle.addEventListener('click', function() {
+                    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordInput.setAttribute('type', type);
+                    this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+                });
+            }
+
+            // 2FA Code Inputs
+            const codeInputs = document.querySelectorAll('.code-input');
+            codeInputs.forEach((input, index) => {
+                input.addEventListener('input', function() {
+                    if (this.value.length === 1 && index < codeInputs.length - 1) {
+                        codeInputs[index + 1].focus();
+                    }
+                    
+                    // Auto verify when all inputs are filled
+                    const allFilled = Array.from(codeInputs).every(input => input.value.length === 1);
+                    if (allFilled) {
+                        document.getElementById('verifyCode').click();
+                    }
+                });
+
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === 'Backspace' && this.value.length === 0 && index > 0) {
+                        codeInputs[index - 1].focus();
+                    }
+                });
+            });
+
+            // Forgot Password Modal
+            const forgotPassword = document.getElementById('forgotPassword');
+            const forgotModal = document.getElementById('forgotModal');
+            const closeForgot = document.getElementById('closeForgot');
+            
+            if (forgotPassword && forgotModal) {
+                forgotPassword.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    forgotModal.classList.add('active');
+                });
+            }
+            
+            if (closeForgot) {
+                closeForgot.addEventListener('click', function() {
+                    forgotModal.classList.remove('active');
+                });
+            }
+
+            // Send Reset Email
+            const sendReset = document.getElementById('sendReset');
+            if (sendReset) {
+                sendReset.addEventListener('click', function() {
+                    const email = document.getElementById('resetEmail').value;
+                    if (!email) {
+                        showNotification('الرجاء إدخال البريد الإلكتروني', 'error');
+                        return;
+                    }
+                    
+                    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+                    this.disabled = true;
+                    
+                    setTimeout(() => {
+                        showNotification('تم إرسال رابط الاستعادة إلى بريدك الإلكتروني', 'success');
+                        this.innerHTML = '<i class="fas fa-check"></i> تم الإرسال';
+                        setTimeout(() => {
+                            forgotModal.classList.remove('active');
+                            this.innerHTML = '<i class="fas fa-paper-plane"></i> إرسال رابط الاستعادة';
+                            this.disabled = false;
+                        }, 1500);
+                    }, 2000);
+                });
+            }
+
+            // Login Form Submission
+            const loginForm = document.getElementById('loginForm');
+            const loginBtn = document.getElementById('loginBtn');
+            const btnLoading = document.getElementById('btnLoading');
+            
+            if (loginForm && loginBtn) {
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('password').value;
+                    const twoFactor = document.getElementById('twoFactor').checked;
+                    
+                    // Validate inputs
+                    if (!email || !password) {
+                        showNotification('الرجاء ملء جميع الحقول', 'error');
+                        return;
+                    }
+                    
+                    // Show loading
+                    loginBtn.disabled = true;
+                    btnLoading.style.display = 'inline-block';
+                    
+                    // Simulate API call
+                    setTimeout(() => {
+                        if (twoFactor) {
+                            // Show 2FA modal
+                            document.getElementById('twofaModal').classList.add('active');
+                            loginBtn.disabled = false;
+                            btnLoading.style.display = 'none';
+                        } else {
+                            // Direct login
+                            showNotification('تم تسجيل الدخول بنجاح!', 'success');
+                            setTimeout(() => {
+                                window.location.href = 'dashboard.html';
+                            }, 1500);
+                        }
+                    }, 1500);
+                });
+            }
+
+            // 2FA Verification
+            const verifyCode = document.getElementById('verifyCode');
+            const twofaModal = document.getElementById('twofaModal');
+            const closeTwofa = document.getElementById('closeTwofa');
+            
+            if (verifyCode) {
+                verifyCode.addEventListener('click', function() {
+                    const code = Array.from(document.querySelectorAll('.code-input'))
+                                     .map(input => input.value)
+                                     .join('');
+                    
+                    if (code.length !== 6) {
+                        showNotification('الرجاء إدخال الرمز المكون من 6 أرقام', 'error');
+                        return;
+                    }
+                    
+                    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحقق...';
+                    this.disabled = true;
+                    
+                    setTimeout(() => {
+                        showNotification('تم التحقق بنجاح!', 'success');
+                        setTimeout(() => {
+                            window.location.href = 'dashboard.html';
+                        }, 1000);
+                    }, 1500);
+                });
+            }
+            
+            if (closeTwofa && twofaModal) {
+                closeTwofa.addEventListener('click', function() {
+                    twofaModal.classList.remove('active');
+                });
+            }
+
+            // Resend Code with Countdown
+            const resendCode = document.getElementById('resendCode');
+            const countdown = document.getElementById('countdown');
+            
+            if (resendCode && countdown) {
+                let countdownValue = 60;
+                let countdownInterval;
+                
+                resendCode.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Disable resend for 60 seconds
+                    this.style.pointerEvents = 'none';
+                    this.style.opacity = '0.5';
+                    
+                    countdownInterval = setInterval(() => {
+                        countdownValue--;
+                        countdown.textContent = `(${countdownValue})`;
+                        
+                        if (countdownValue <= 0) {
+                            clearInterval(countdownInterval);
+                            this.style.pointerEvents = 'auto';
+                            this.style.opacity = '1';
+                            countdown.textContent = '';
+                            countdownValue = 60;
+                        }
+                    }, 1000);
+                    
+                    showNotification('تم إعادة إرسال الرمز إلى بريدك الإلكتروني', 'info');
+                });
+            }
+
+            // Social Login Buttons
+            document.querySelectorAll('.social-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const provider = this.classList.contains('google') ? 'Google' :
+                                   this.classList.contains('github') ? 'GitHub' : 'Twitter';
+                    
+                    showNotification(`جارٍ تسجيل الدخول باستخدام ${provider}...`, 'info');
+                    
+                    // Simulate social login
+                    setTimeout(() => {
+                        showNotification(`تم تسجيل الدخول باستخدام ${provider} بنجاح!`, 'success');
+                        setTimeout(() => {
+                            window.location.href = 'dashboard.html';
+                        }, 1500);
+                    }, 2000);
+                });
+            });
+
+            // Generate Particles for Background
+            generateParticles();
+        });
+
+        function generateParticles() {
+            const container = document.getElementById('particles');
+            if (!container) return;
+            
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random size
+                const size = Math.random() * 4 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random color
+                const colors = ['#FFD700', '#00F3FF', '#FF00CC', '#00FF88'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.backgroundColor = color;
+                particle.style.boxShadow = `0 0 ${size * 2}px ${color}`;
+                
+                // Random animation
+                const duration = Math.random() * 20 + 10;
+                particle.style.animation = `
+                    float ${duration}s infinite linear,
+                    pulse ${duration / 2}s infinite ease-in-out
+                `;
+                
+                container.appendChild(particle);
+            }
+        }
+
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `auth-notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check' : 
+                                 type === 'error' ? 'times' : 
+                                 type === 'warning' ? 'exclamation' : 'info'}"></i>
+                <span>${message}</span>
+                <button class="close-notification">&times;</button>
+            `;
+            
+            document.querySelector('.auth-right').appendChild(notification);
+            
+            notification.querySelector('.close-notification').addEventListener('click', () => {
+                notification.remove();
+            });
+            
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

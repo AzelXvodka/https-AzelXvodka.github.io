@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب - LEGEND HOSTING</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body class="dark-mode">
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader">
+            <div class="crown">
+                <i class="fas fa-crown"></i>
+            </div>
+            <p>جاري تحميل لوحة التسجيل...</p>
+        </div>
+    </div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Auth Container -->
+    <div class="auth-container">
+        <!-- Left Side - Branding -->
+        <div class="auth-left">
+            <div class="auth-brand">
+                <a href="index.html" class="auth-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h1>LEGEND<span>HOSTING</span></h1>
+                </a>
+                <p class="auth-tagline">انضم إلى مجتمع الاستضافة الخارق</p>
+            </div>
+
+            <div class="registration-benefits">
+                <h3><i class="fas fa-gift"></i> مزايا التسجيل المجاني:</h3>
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check-circle"></i> 30 يوم تجريبي مجاني</li>
+                    <li><i class="fas fa-check-circle"></i> 10GB مساحة تخزين SSD</li>
+                    <li><i class="fas fa-check-circle"></i> نطاق فرعي مجاني</li>
+                    <li><i class="fas fa-check-circle"></i> شهادة SSL مجانية</li>
+                    <li><i class="fas fa-check-circle"></i> دعم فني 24/7</li>
+                    <li><i class="fas fa-check-circle"></i> نقل موقع مجاني</li>
+                </ul>
+            </div>
+
+            <div class="user-testimonials">
+                <h3><i class="fas fa-comments"></i> آراء المسجلين الجدد:</h3>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "سجلت منذ أسبوع والخدمة ممتازة! السرعة خيالية والدعم سريع."
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>محمد العلي</strong> - مسجل جديد
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "أفضل قرار اتخذته. نقلت موقعي وكانت العملية سلسة جداً."
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>سارة أحمد</strong> - صاحبة متجر إلكتروني
+                    </div>
+                </div>
+            </div>
+
+            <div class="registration-stats">
+                <div class="stat">
+                    <h3>+124</h3>
+                    <p>مستخدم جديد اليوم</p>
+                </div>
+                <div class="stat">
+                    <h3>98%</h3>
+                    <p>رضا العملاء</p>
+                </div>
+                <div class="stat">
+                    <h3>5 دقائق</h3>
+                    <p>متوسط وقت التسجيل</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Registration Form -->
+        <div class="auth-right">
+            <!-- Progress Steps -->
+            <div class="registration-progress">
+                <div class="progress-steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">المعلومات الشخصية</div>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-label">اختيار الخطة</div>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-label">تفعيل الحساب</div>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 33%"></div>
+                </div>
+            </div>
+
+            <div class="auth-card">
+                <!-- Registration Header -->
+                <div class="auth-header">
+                    <h2>أنشئ حسابك المجاني 🚀</h2>
+                    <p>ابدأ رحلتك مع Legend Hosting في أقل من 5 دقائق</p>
+                </div>
+
+                <!-- Registration Form -->
+                <form class="auth-form" id="registerForm">
+                    <!-- Step 1: Personal Information -->
+                    <div class="form-step active" id="step1">
+                        <div class="step-header">
+                            <h3><i class="fas fa-user"></i> المعلومات الشخصية</h3>
+                            <p>أدخل بياناتك الأساسية للبدء</p>
+                        </div>
+
+                        <!-- Name Fields -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">
+                                    <i class="fas fa-user"></i>
+                                    الاسم الأول
+                                </label>
+                                <input type="text" id="firstName" name="firstName" class="form-control" 
+                                       placeholder="أحمد" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">
+                                    <i class="fas fa-user"></i>
+                                    اسم العائلة
+                                </label>
+                                <input type="text" id="lastName" name="lastName" class="form-control" 
+                                       placeholder="محمد" required>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="regEmail" class="form-label">
+                                <i class="fas fa-envelope"></i>
+                                البريد الإلكتروني
+                            </label>
+                            <div class="input-group">
+                                <input type="email" id="regEmail" name="email" class="form-control" 
+                                       placeholder="example@legend.com" required>
+                                <div class="input-icon">
+                                    <i class="fas fa-at"></i>
+                                </div>
+                            </div>
+                            <div class="form-hint">سنرسل رابط التفعيل إلى هذا البريد</div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="form-group">
+                            <label for="phone" class="form-label">
+                                <i class="fas fa-phone"></i>
+                                رقم الهاتف
+                            </label>
+                            <div class="input-group">
+                                <select class="country-code">
+                                    <option value="+966">🇸🇦 +966</option>
+                                    <option value="+971">🇦🇪 +971</option>
+                                    <option value="+965">🇰🇼 +965</option>
+                                    <option value="+973">🇧🇭 +973</option>
+                                    <option value="+974">🇶🇦 +974</option>
+                                    <option value="+968">🇴🇲 +968</option>
+                                </select>
+                                <input type="tel" id="phone" name="phone" class="form-control" 
+                                       placeholder="5XX XXX XXX" required>
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group">
+                            <label for="regPassword" class="form-label">
+                                <i class="fas fa-lock"></i>
+                                كلمة المرور
+                            </label>
+                            <div class="input-group">
+                                <input type="password" id="regPassword" name="password" class="form-control" 
+                                       placeholder="أنشئ كلمة مرور قوية" required>
+                                <div class="input-icon">
+                                    <i class="fas fa-key"></i>
+                                </div>
+                                <button type="button" class="password-toggle" id="regPasswordToggle">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="password-strength">
+                                <div class="strength-bar">
+                                    <div class="strength-fill" id="strengthFill" style="width: 0%"></div>
+                                </div>
+                                <span class="strength-text" id="strengthText">ضعيفة</span>
+                            </div>
+                            <div class="password-requirements">
+                                <p>متطلبات كلمة المرور:</p>
+                                <ul>
+                                    <li id="reqLength"><i class="fas fa-times"></i> 8 أحرف على الأقل</li>
+                                    <li id="reqUpper"><i class="fas fa-times"></i> حرف كبير</li>
+                                    <li id="reqNumber"><i class="fas fa-times"></i> رقم واحد على الأقل</li>
+                                    <li id="reqSpecial"><i class="fas fa-times"></i> رمز خاص</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="form-group">
+                            <label for="confirmPassword" class="form-label">
+                                <i class="fas fa-lock"></i>
+                                تأكيد كلمة المرور
+                            </label>
+                            <div class="input-group">
+                                <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" 
+                                       placeholder="أعد إدخال كلمة المرور" required>
+                                <div class="input-icon">
+                                    <i class="fas fa-key"></i>
+                                </div>
+                            </div>
+                            <div class="password-match" id="passwordMatch">
+                                <i class="fas fa-times"></i> كلمتا المرور غير متطابقتين
+                            </div>
+                        </div>
+
+                        <!-- Terms & Conditions -->
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input type="checkbox" id="terms" name="terms" class="form-check-input" required>
+                                <label for="terms" class="form-check-label">
+                                    أوافق على <a href="#" class="terms-link">شروط الخدمة</a> و 
+                                    <a href="#" class="terms-link">سياسة الخصوصية</a>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" id="newsletter" name="newsletter" class="form-check-input" checked>
+                                <label for="newsletter" class="form-check-label">
+                                    أرغب في تلقي عروض حصرية وتحديثات عبر البريد
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Step Navigation -->
+                        <div class="step-navigation">
+                            <button type="button" class="btn btn-outline" id="skipTrial">
+                                <i class="fas fa-clock"></i> تخطي التجربة المجانية
+                            </button>
+                            <button type="button" class="btn btn-primary" id="nextStep1">
+                                التالي <i class="fas fa-arrow-left"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Choose Plan -->
+                    <div class="form-step" id="step2">
+                        <div class="step-header">
+                            <h3><i class="fas fa-crown"></i> اختر خطتك المناسبة</h3>
+                            <p>ابدأ بالتجربة المجانية أو اختر خطة مدفوعة</p>
+                        </div>
+
+                        <div class="plan-selection">
+                            <div class="plan-toggle">
+                                <button type="button" class="toggle-btn active" data-period="trial">
+                                    <i class="fas fa-gift"></i> تجربة مجانية
+                                </button>
+                                <button type="button" class="toggle-btn" data-period="paid">
+                                    <i class="fas fa-rocket"></i> خطط مدفوعة
+                                </button>
+                            </div>
+
+                            <!-- Trial Plan -->
+                            <div class="plan-options active" id="trialPlans">
+                                <div class="plan-card trial">
+                                    <div class="plan-header">
+                                        <h4><i class="fas fa-gift"></i> التجربة المجانية</h4>
+                                        <div class="plan-price">
+                                            <span class="currency">مجاني</span>
+                                            <span class="period">لمدة 30 يوم</span>
+                                        </div>
+                                    </div>
+                                    <ul class="plan-features">
+                                        <li><i class="fas fa-check"></i> 10GB مساحة SSD</li>
+                                        <li><i class="fas fa-check"></i> 100GB نقل بيانات</li>
+                                        <li><i class="fas fa-check"></i> 5 حسابات بريد</li>
+                                        <li><i class="fas fa-check"></i> شهادة SSL مجانية</li>
+                                        <li><i class="fas fa-check"></i> دعم فني 24/7</li>
+                                        <li><i class="fas fa-check"></i> نسخ احتياطي أسبوعي</li>
+                                    </ul>
+                                    <button type="button" class="btn btn-primary btn-block" data-plan="trial">
+                                        <i class="fas fa-play-circle"></i> ابدأ التجربة المجانية
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Paid Plans -->
+                            <div class="plan-options" id="paidPlans">
+                                <div class="plans-grid">
+                                    <div class="plan-card basic">
+                                        <div class="plan-header">
+                                            <h4><i class="fas fa-star"></i> الأساسية</h4>
+                                            <div class="plan-price">
+                                                <span class="currency">$</span>
+                                                <span class="amount">4.99</span>
+                                                <span class="period">/شهر</span>
+                                            </div>
+                                        </div>
+                                        <ul class="plan-features">
+                                            <li><i class="fas fa-check"></i> 20GB مساحة SSD</li>
+                                            <li><i class="fas fa-check"></i> 200GB نقل بيانات</li>
+                                            <li><i class="fas fa-check"></i> 10 حسابات بريد</li>
+                                            <li><i class="fas fa-check"></i> شهادة SSL مجانية</li>
+                                            <li><i class="fas fa-check"></i> نسخ احتياطي أسبوعي</li>
+                                        </ul>
+                                        <button type="button" class="btn btn-outline btn-block" data-plan="basic">
+                                            اختر الخطة
+                                        </button>
+                                    </div>
+
+                                    <div class="plan-card popular">
+                                        <div class="popular-badge">الأكثر طلباً</div>
+                                        <div class="plan-header">
+                                            <h4><i class="fas fa-crown"></i> المتطورة</h4>
+                                            <div class="plan-price">
+                                                <span class="currency">$</span>
+                                                <span class="amount">9.99</span>
+                                                <span class="period">/شهر</span>
+                                            </div>
+                                        </div>
+                                        <ul class="plan-features">
+                                            <li><i class="fas fa-check"></i> 50GB مساحة NVMe</li>
+                                            <li><i class="fas fa-check"></i> نقل بيانات غير محدود</li>
+                                            <li><i class="fas fa-check"></i> بريد إلكتروني غير محدود</li>
+                                            <li><i class="fas fa-check"></i> شهادة SSL مجانية</li>
+                                            <li><i class="fas fa-check"></i> نسخ احتياطي يومي</li>
+                                        </ul>
+                                        <button type="button" class="btn btn-primary btn-block" data-plan="advanced">
+                                            اختر الخطة
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Domain Section -->
+                        <div class="domain-section">
+                            <h4><i class="fas fa-globe"></i> اختر نطاقك المجاني</h4>
+                            <div class="domain-search">
+                                <div class="input-group">
+                                    <input type="text" id="domainName" class="form-control" 
+                                           placeholder="اسم نطاقك">
+                                    <select class="domain-extension">
+                                        <option value=".com">.com</option>
+                                        <option value=".net">.net</option>
+                                        <option value=".org">.org</option>
+                                        <option value=".tech">.tech</option>
+                                        <option value=".store">.store</option>
+                                    </select>
+                                    <button type="button" class="btn btn-outline" id="checkDomain">
+                                        <i class="fas fa-search"></i> تحقق
+                                    </button>
+                                </div>
+                                <div class="domain-result" id="domainResult">
+                                    <!-- Result will appear here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step Navigation -->
+                        <div class="step-navigation">
+                            <button type="button" class="btn btn-outline" id="prevStep1">
+                                <i class="fas fa-arrow-right"></i> السابق
+                            </button>
+                            <button type="button" class="btn btn-primary" id="nextStep2">
+                                التالي <i class="fas fa-arrow-left"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Account Activation -->
+                    <div class="form-step" id="step3">
+                        <div class="step-header">
+                            <h3><i class="fas fa-check-circle"></i> تأكيد وإنشاء الحساب</h3>
+                            <p>خطوة أخيرة لتفعيل حسابك</p>
+                        </div>
+
+                        <!-- Selected Plan Summary -->
+                        <div class="summary-card" id="selectedPlanSummary">
+                            <div class="summary-header">
+                                <h4><i class="fas fa-shopping-cart"></i> ملخص طلبك</h4>
+                            </div>
+                            <div class="summary-content">
+                                <div class="summary-item">
+                                    <span>الخطة المختارة:</span>
+                                    <strong id="selectedPlanName">التجربة المجانية</strong>
+                                </div>
+                                <div class="summary-item">
+                                    <span>المدة:</span>
+                                    <strong id="selectedPlanDuration">30 يوم</strong>
+                                </div>
+                                <div class="summary-item">
+                                    <span>السعر:</span>
+                                    <strong id="selectedPlanPrice">مجاني</strong>
+                                </div>
+                                <div class="summary-item">
+                                    <span>النطاق:</span>
+                                    <strong id="selectedDomain">لم يتم اختيار</strong>
+                                </div>
+                                <div class="summary-item total">
+                                    <span>المجموع:</span>
+                                    <strong id="selectedTotal">$0.00</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div class="payment-section">
+                            <h4><i class="fas fa-credit-card"></i> طريقة الدفع</h4>
+                            <div class="payment-methods">
+                                <div class="payment-method active" data-method="credit">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>بطاقة ائتمان</span>
+                                </div>
+                                <div class="payment-method" data-method="paypal">
+                                    <i class="fab fa-paypal"></i>
+                                    <span>PayPal</span>
+                                </div>
+                                <div class="payment-method" data-method="bank">
+                                    <i class="fas fa-university"></i>
+                                    <span>تحويل بنكي</span>
+                                </div>
+                            </div>
+
+                            <!-- Credit Card Form (Visible by default) -->
+                            <div class="payment-form active" id="creditForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="cardNumber">رقم البطاقة</label>
+                                        <div class="input-group">
+                                            <input type="text" id="cardNumber" class="form-control" 
+                                                   placeholder="1234 5678 9012 3456" maxlength="19">
+                                            <div class="card-icons">
+                                                <i class="fab fa-cc-visa"></i>
+                                                <i class="fab fa-cc-mastercard"></i>
+                                                <i class="fab fa-cc-amex"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="cardName">اسم حامل البطاقة</label>
+                                        <input type="text" id="cardName" class="form-control" 
+                                               placeholder="كما تظهر على البطاقة">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cardExpiry">تاريخ الانتهاء</label>
+                                        <input type="text" id="cardExpiry" class="form-control" 
+                                               placeholder="MM/YY" maxlength="5">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cardCVC">رمز CVC</label>
+                                        <input type="password" id="cardCVC" class="form-control" 
+                                               placeholder="123" maxlength="4">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Referral Code -->
+                        <div class="referral-section">
+                            <div class="input-group">
+                                <input type="text" id="referralCode" class="form-control" 
+                                       placeholder="هل لديك كود خصم؟ (اختياري)">
+                                <button type="button" class="btn btn-outline" id="applyReferral">
+                                    <i class="fas fa-tag"></i> تطبيق
+                                </button>
+                            </div>
+                            <div class="referral-result" id="referralResult"></div>
+                        </div>
+
+                        <!-- Final Step -->
+                        <div class="final-step">
+                            <div class="verification-notice">
+                                <i class="fas fa-envelope-open-text"></i>
+                                <p>
+                                    سنرسل رسالة تأكيد إلى بريدك الإلكتروني. 
+                                    يرجى التحقق من صندوق الوارد أو الرسائل غير المرغوب فيها.
+                                </p>
+                            </div>
+
+                            <!-- Activation Button -->
+                            <button type="submit" class="btn btn-primary btn-block btn-lg" id="activateAccount">
+                                <i class="fas fa-rocket"></i>
+                                إنشاء حسابي وتفعيله
+                                <span class="btn-loading">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                </span>
+                            </button>
+
+                            <div class="activation-info">
+                                <p><i class="fas fa-bolt"></i> سيتم تفعيل حسابك خلال 2 دقيقة</p>
+                                <p><i class="fas fa-headset"></i> فريق الدعم جاهز لمساعدتك 24/7</p>
+                            </div>
+                        </div>
+
+                        <!-- Step Navigation -->
+                        <div class="step-navigation">
+                            <button type="button" class="btn btn-outline" id="prevStep2">
+                                <i class="fas fa-arrow-right"></i> السابق
+                            </button>
+                            <button type="button" class="btn btn-primary" id="skipPayment">
+                                <i class="fas fa-bolt"></i> تخطي الدفع الآن
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Success Modal -->
+                <div class="modal success-modal" id="successModal">
+                    <div class="modal-content">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="success-content">
+                            <h3>تهانينا! 🎉</h3>
+                            <p>تم إنشاء حسابك بنجاح. جاري تحويلك إلى لوحة التحكم...</p>
+                            <div class="success-details">
+                                <p><i class="fas fa-envelope"></i> تم إرسال رسالة التفعيل إلى بريدك</p>
+                                <p><i class="fas fa-gift"></i> يمكنك البدء باستخدام الخدمة فوراً</p>
+                            </div>
+                            <div class="success-countdown">
+                                <p>سيتم التحويل خلال: <span id="countdownTimer">5</span> ثواني</p>
+                            </div>
+                        </div>
+                        <div class="modal-actions">
+                            <a href="dashboard.html" class="btn btn-primary">
+                                <i class="fas fa-tachometer-alt"></i> الذهاب إلى لوحة التحكم
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Badges -->
+                <div class="security-badges">
+                    <div class="badge">
+                        <i class="fas fa-lock"></i>
+                        <span>آمن 256-bit SSL</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>حماية DDoS</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-user-shield"></i>
+                        <span>خصوصية كاملة</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Particles -->
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Registration Page Specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize registration
+            initRegistration();
+        });
+
+        function initRegistration() {
+            // Step Navigation
+            let currentStep = 1;
+            const totalSteps = 3;
+            const steps = document.querySelectorAll('.form-step');
+            const stepElements = document.querySelectorAll('.progress-steps .step');
+            const progressFill = document.getElementById('progressFill');
+
+            // Password Strength Checker
+            const passwordInput = document.getElementById('regPassword');
+            const strengthFill = document.getElementById('strengthFill');
+            const strengthText = document.getElementById('strengthText');
+            const passwordRequirements = {
+                length: document.getElementById('reqLength'),
+                upper: document.getElementById('reqUpper'),
+                number: document.getElementById('reqNumber'),
+                special: document.getElementById('reqSpecial')
+            };
+
+            // Password Toggle
+            const passwordToggle = document.getElementById('regPasswordToggle');
+            if (passwordToggle && passwordInput) {
+                passwordToggle.addEventListener('click', function() {
+                    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordInput.setAttribute('type', type);
+                    this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+                });
+            }
+
+            // Password Strength Calculation
+            if (passwordInput) {
+                passwordInput.addEventListener('input', function() {
+                    const password = this.value;
+                    let strength = 0;
+                    let score = 0;
+                    let maxScore = 4;
+
+                    // Check length
+                    if (password.length >= 8) {
+                        score++;
+                        updateRequirement(passwordRequirements.length, true);
+                    } else {
+                        updateRequirement(passwordRequirements.length, false);
+                    }
+
+                    // Check uppercase
+                    if (/[A-Z]/.test(password)) {
+                        score++;
+                        updateRequirement(passwordRequirements.upper, true);
+                    } else {
+                        updateRequirement(passwordRequirements.upper, false);
+                    }
+
+                    // Check numbers
+                    if (/[0-9]/.test(password)) {
+                        score++;
+                        updateRequirement(passwordRequirements.number, true);
+                    } else {
+                        updateRequirement(passwordRequirements.number, false);
+                    }
+
+                    // Check special characters
+                    if (/[^A-Za-z0-9]/.test(password)) {
+                        score++;
+                        updateRequirement(passwordRequirements.special, true);
+                    } else {
+                        updateRequirement(passwordRequirements.special, false);
+                    }
+
+                    // Calculate strength percentage
+                    strength = (score / maxScore) * 100;
+                    strengthFill.style.width = strength + '%';
+
+                    // Update strength text
+                    if (strength === 0) {
+                        strengthText.textContent = 'ضعيفة';
+                        strengthText.style.color = '#ff5555';
+                    } else if (strength <= 50) {
+                        strengthText.textContent = 'متوسطة';
+                        strengthText.style.color = '#ffaa00';
+                    } else if (strength <= 75) {
+                        strengthText.textContent = 'جيدة';
+                        strengthText.style.color = '#00ff88';
+                    } else {
+                        strengthText.textContent = 'قوية جداً';
+                        strengthText.style.color = '#00ff88';
+                        strengthText.innerHTML += ' <i class="fas fa-check"></i>';
+                    }
+
+                    // Check password match
+                    checkPasswordMatch();
+                });
+            }
+
+            function updateRequirement(element, met) {
+                const icon = element.querySelector('i');
+                if (met) {
+                    icon.className = 'fas fa-check-circle';
+                    icon.style.color = '#00ff88';
+                } else {
+                    icon.className = 'fas fa-times-circle';
+                    icon.style.color = '#ff5555';
+                }
+            }
+
+            // Password Match Checker
+            const confirmPassword = document.getElementById('confirmPassword');
+            const passwordMatch = document.getElementById('passwordMatch');
+
+            function checkPasswordMatch() {
+                const password = passwordInput.value;
+                const confirm = confirmPassword.value;
+
+                if (confirm === '') {
+                    passwordMatch.style.display = 'none';
+                    return;
+                }
+
+                if (password === confirm) {
+                    passwordMatch.innerHTML = '<i class="fas fa-check"></i> كلمتا المرور متطابقتان';
+                    passwordMatch.style.color = '#00ff88';
+                    passwordMatch.style.display = 'block';
+                } else {
+                    passwordMatch.innerHTML = '<i class="fas fa-times"></i> كلمتا المرور غير متطابقتين';
+                    passwordMatch.style.color = '#ff5555';
+                    passwordMatch.style.display = 'block';
+                }
+            }
+
+            if (confirmPassword) {
+                confirmPassword.addEventListener('input', checkPasswordMatch);
+            }
+
+            // Step Navigation Functions
+            function goToStep(step) {
+                // Hide all steps
+                steps.forEach(s => s.classList.remove('active'));
+                stepElements.forEach(s => s.classList.remove('active'));
+
+                // Show target step
+                document.getElementById(`step${step}`).classList.add('active');
+                stepElements[step - 1].classList.add('active');
+
+                // Update progress bar
+                const progress = ((step - 1) / (totalSteps - 1)) * 100;
+                progressFill.style.width = progress + '%';
+
+                currentStep = step;
+
+                // Scroll to top of form
+                document.querySelector('.auth-card').scrollTo(0, 0);
+            }
+
+            // Next Step 1
+            document.getElementById('nextStep1').addEventListener('click', function() {
+                // Validate step 1
+                const firstName = document.getElementById('firstName').value;
+                const lastName = document.getElementById('lastName').value;
+                const email = document.getElementById('regEmail').value;
+                const password = document.getElementById('regPassword').value;
+
+                if (!firstName || !lastName || !email || !password) {
+                    showNotification('الرجاء ملء جميع الحقول المطلوبة', 'error');
+                    return;
+                }
+
+                // Check password strength
+                const strength = parseInt(strengthFill.style.width);
+                if (strength < 50) {
+                    showNotification('كلمة المرور ضعيفة جداً. الرجاء اختيار كلمة أقوى', 'warning');
+                    return;
+                }
+
+                // Check password match
+                const confirm = document.getElementById('confirmPassword').value;
+                if (password !== confirm) {
+                    showNotification('كلمتا المرور غير متطابقتين', 'error');
+                    return;
+                }
+
+                // Check terms
+                if (!document.getElementById('terms').checked) {
+                    showNotification('يجب الموافقة على شروط الخدمة', 'error');
+                    return;
+                }
+
+                // Go to step 2
+                goToStep(2);
+            });
+
+            // Previous Step 1
+            document.getElementById('prevStep1').addEventListener('click', function() {
+                goToStep(1);
+            });
+
+            // Next Step 2
+            document.getElementById('nextStep2').addEventListener('click', function() {
+                // Check if plan is selected
+                const selectedPlan = document.querySelector('.plan-card.selected');
+                if (!selectedPlan) {
+                    showNotification('الرجاء اختيار خطة', 'error');
+                    return;
+                }
+
+                // Go to step 3
+                goToStep(3);
+
+                // Update summary
+                updateOrderSummary();
+            });
+
+            // Previous Step 2
+            document.getElementById('prevStep2').addEventListener('click', function() {
+                goToStep(2);
+            });
+
+            // Plan Selection
+            document.querySelectorAll('.plan-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    // Remove selected class from all cards
+                    document.querySelectorAll('.plan-card').forEach(c => {
+                        c.classList.remove('selected');
+                    });
+
+                    // Add selected class to clicked card
+                    this.classList.add('selected');
+                });
+            });
+
+            // Plan Toggle (Trial vs Paid)
+            document.querySelectorAll('.toggle-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    document.querySelectorAll('.toggle-btn').forEach(b => {
+                        b.classList.remove('active');
+                    });
+
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    // Show corresponding plans
+                    const period = this.getAttribute('data-period');
+                    document.querySelectorAll('.plan-options').forEach(options => {
+                        options.classList.remove('active');
+                    });
+                    document.getElementById(period + 'Plans').classList.add('active');
+                });
+            });
+
+            // Skip Trial
+            document.getElementById('skipTrial').addEventListener('click', function() {
+                // Switch to paid plans
+                document.querySelector('[data-period="paid"]').click();
+                goToStep(2);
+            });
+
+            // Skip Payment
+            document.getElementById('skipPayment').addEventListener('click', function() {
+                // Select trial plan automatically
+                document.querySelector('[data-period="trial"]').click();
+                document.querySelector('.trial.plan-card').classList.add('selected');
+                updateOrderSummary();
+            });
+
+            // Domain Check
+            document.getElementById('checkDomain').addEventListener('click', function() {
+                const domainInput = document.getElementById('domainName');
+                const domainExt = document.querySelector('.domain-extension').value;
+                const domain = domainInput.value + domainExt;
+                const result = document.getElementById('domainResult');
+
+                if (!domainInput.value) {
+                    showNotification('الرجاء إدخال اسم النطاق', 'error');
+                    return;
+                }
+
+                // Show loading
+                result.innerHTML = '<div class="loading-domain"><i class="fas fa-spinner fa-spin"></i> جاري التحقق...</div>';
+                this.disabled = true;
+
+                // Simulate domain check
+                setTimeout(() => {
+                    // Random result for demo
+                    const isAvailable = Math.random() > 0.3;
+
+                    if (isAvailable) {
+                        result.innerHTML = `
+                            <div class="domain-available">
+                                <i class="fas fa-check-circle"></i>
+                                <span>${domain} متاح!</span>
+                                <button type="button" class="btn btn-sm btn-primary" onclick="selectDomain('${domain}')">
+                                    اختر هذا النطاق
+                                </button>
+                            </div>
+                        `;
+                    } else {
+                        result.innerHTML = `
+                            <div class="domain-taken">
+                                <i class="fas fa-times-circle"></i>
+                                <span>${domain} غير متاح</span>
+                                <button type="button" class="btn btn-sm btn-outline" onclick="suggestDomains('${domainInput.value}')">
+                                    اقتراح أسماء بديلة
+                                </button>
+                            </div>
+                        `;
+                    }
+
+                    this.disabled = false;
+                }, 1500);
+            });
+
+            // Referral Code
+            document.getElementById('applyReferral').addEventListener('click', function() {
+                const code = document.getElementById('referralCode').value;
+                const result = document.getElementById('referralResult');
+
+                if (!code) {
+                    showNotification('الرجاء إدخال كود الخصم', 'error');
+                    return;
+                }
+
+                // Simulate referral check
+                result.innerHTML = '<div class="loading-ref"><i class="fas fa-spinner fa-spin"></i> جاري التحقق...</div>';
+
+                setTimeout(() => {
+                    // Random result for demo
+                    const isValid = Math.random() > 0.5;
+
+                    if (isValid) {
+                        result.innerHTML = `
+                            <div class="ref-valid">
+                                <i class="fas fa-check-circle"></i>
+                                <span>كود الخصم صالح! خصم 20% تم تطبيقه</span>
+                            </div>
+                        `;
+                        updateOrderSummary(20); // 20% discount
+                    } else {
+                        result.innerHTML = `
+                            <div class="ref-invalid">
+                                <i class="fas fa-times-circle"></i>
+                                <span>كود الخصم غير صالح أو منتهي الصلاحية</span>
+                            </div>
+                        `;
+                        updateOrderSummary(0);
+                    }
+                }, 1000);
+            });
+
+            // Payment Method Selection
+            document.querySelectorAll('.payment-method').forEach(method => {
+                method.addEventListener('click', function() {
+                    // Remove active class from all methods
+                    document.querySelectorAll('.payment-method').forEach(m => {
+                        m.classList.remove('active');
+                    });
+
+                    // Add active class to clicked method
+                    this.classList.add('active');
+
+                    // Show corresponding form
+                    const methodType = this.getAttribute('data-method');
+                    document.querySelectorAll('.payment-form').forEach(form => {
+                        form.classList.remove('active');
+                    });
+                    document.getElementById(methodType + 'Form').classList.add('active');
+                });
+            });
+
+            // Form Submission
+            const registerForm = document.getElementById('registerForm');
+            const activateBtn = document.getElementById('activateAccount');
+
+            if (registerForm && activateBtn) {
+                registerForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    // Show loading
+                    activateBtn.disabled = true;
+                    activateBtn.querySelector('.btn-loading').style.display = 'inline-block';
+
+                    // Simulate registration process
+                    setTimeout(() => {
+                        // Show success modal
+                        document.getElementById('successModal').classList.add('active');
+
+                        // Start countdown
+                        let countdown = 5;
+                        const timer = document.getElementById('countdownTimer');
+                        const countdownInterval = setInterval(() => {
+                            countdown--;
+                            timer.textContent = countdown;
+
+                            if (countdown <= 0) {
+                                clearInterval(countdownInterval);
+                                window.location.href = 'dashboard.html';
+                            }
+                        }, 1000);
+                    }, 2000);
+                });
+            }
+
+            // Initialize domain input formatting
+            initDomainInput();
+            initCardInputs();
+
+            // Generate particles
+            generateParticles();
+        }
+
+        // Global functions for domain selection
+        window.selectDomain = function(domain) {
+            const result = document.getElementById('domainResult');
+            result.innerHTML = `
+                <div class="domain-selected">
+                    <i class="fas fa-check-circle"></i>
+                    <span>${domain} تم اختياره</span>
+                </div>
+            `;
+
+            // Update summary
+            document.getElementById('selectedDomain').textContent = domain;
+            updateOrderSummary();
+
+            showNotification(`تم اختيار النطاق: ${domain}`, 'success');
+        };
+
+        window.suggestDomains = function(baseName) {
+            const suggestions = [
+                `${baseName}online`,
+                `${baseName}tech`,
+                `${baseName}store`,
+                `${baseName}web`,
+                `${baseName}site`
+            ];
+
+            const result = document.getElementById('domainResult');
+            let html = '<div class="domain-suggestions"><p>اقتراحات بديلة:</p><ul>';
+
+            suggestions.forEach(suggestion => {
+                const ext = document.querySelector('.domain-extension').value;
+                html += `
+                    <li>
+                        <span>${suggestion}${ext}</span>
+                        <button type="button" class="btn btn-xs btn-outline" onclick="selectDomain('${suggestion}${ext}')">
+                            اختر
+                        </button>
+                    </li>
+                `;
+            });
+
+            html += '</ul></div>';
+            result.innerHTML = html;
+        };
+
+        function updateOrderSummary(discount = 0) {
+            const selectedPlan = document.querySelector('.plan-card.selected');
+            if (!selectedPlan) return;
+
+            const planName = selectedPlan.querySelector('h4').textContent;
+            const planPrice = selectedPlan.querySelector('.amount') ? 
+                selectedPlan.querySelector('.amount').textContent : '0';
+            const planCurrency = selectedPlan.querySelector('.currency') ? 
+                selectedPlan.querySelector('.currency').textContent : 'مجاني';
+            const planDuration = selectedPlan.querySelector('.period') ? 
+                selectedPlan.querySelector('.period').textContent : '30 يوم';
+
+            const domain = document.getElementById('selectedDomain').textContent;
+            const isTrial = planCurrency === 'مجاني';
+
+            // Update summary display
+            document.getElementById('selectedPlanName').textContent = planName;
+            document.getElementById('selectedPlanDuration').textContent = planDuration;
+
+            if (isTrial) {
+                document.getElementById('selectedPlanPrice').textContent = 'مجاني';
+                document.getElementById('selectedTotal').textContent = '$0.00';
+            } else {
+                const price = parseFloat(planPrice);
+                const discountedPrice = discount > 0 ? price * (1 - discount / 100) : price;
+                
+                document.getElementById('selectedPlanPrice').textContent = `$${price.toFixed(2)}`;
+                document.getElementById('selectedTotal').textContent = `$${discountedPrice.toFixed(2)}`;
+
+                if (discount > 0) {
+                    document.getElementById('selectedTotal').innerHTML = `
+                        <span style="text-decoration: line-through; opacity: 0.7;">$${price.toFixed(2)}</span>
+                        $${discountedPrice.toFixed(2)}
+                        <span class="discount-badge">-${discount}%</span>
+                    `;
+                }
+            }
+        }
+
+        function initDomainInput() {
+            const domainInput = document.getElementById('domainName');
+            if (!domainInput) return;
+
+            // Allow only alphanumeric and hyphens
+            domainInput.addEventListener('input', function() {
+                this.value = this.value.replace(/[^a-zA-Z0-9-]/g, '');
+            });
+        }
+
+        function initCardInputs() {
+            // Card number formatting
+            const cardNumber = document.getElementById('cardNumber');
+            if (cardNumber) {
+                cardNumber.addEventListener('input', function() {
+                    let value = this.value.replace(/\D/g, '');
+                    value = value.replace(/(\d{4})/g, '$1 ').trim();
+                    this.value = value.substring(0, 19);
+                });
+            }
+
+            // Expiry date formatting
+            const cardExpiry = document.getElementById('cardExpiry');
+            if (cardExpiry) {
+                cardExpiry.addEventListener('input', function() {
+                    let value = this.value.replace(/\D/g, '');
+                    if (value.length >= 2) {
+                        value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                    }
+                    this.value = value.substring(0, 5);
+                });
+            }
+
+            // CVC input
+            const cardCVC = document.getElementById('cardCVC');
+            if (cardCVC) {
+                cardCVC.addEventListener('input', function() {
+                    this.value = this.value.replace(/\D/g, '').substring(0, 4);
+                });
+            }
+        }
+
+        function generateParticles() {
+            const container = document.getElementById('particles');
+            if (!container) return;
+            
+            container.innerHTML = '';
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random size
+                const size = Math.random() * 3 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random color
+                const colors = ['#FFD700', '#00F3FF', '#FF00CC'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.backgroundColor = color;
+                particle.style.boxShadow = `0 0 ${size * 2}px ${color}`;
+                
+                // Random animation
+                const duration = Math.random() * 15 + 10;
+                particle.style.animation = `
+                    float ${duration}s infinite linear,
+                    pulse ${duration / 2}s infinite ease-in-out
+                `;
+                
+                container.appendChild(particle);
+            }
+        }
+
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `auth-notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check' : 
+                                 type === 'error' ? 'times' : 
+                                 type === 'warning' ? 'exclamation' : 'info'}"></i>
+                <span>${message}</span>
+                <button class="close-notification">&times;</button>
+            `;
+            
+            document.querySelector('.auth-right').appendChild(notification);
+            
+            notification.querySelector('.close-notification').addEventListener('click', () => {
+                notification.remove();
+            });
+            
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        // Add additional CSS for registration page
+        const style = document.createElement('style');
+        style.textContent = `
+            .registration-benefits {
+                background: rgba(255, 215, 0, 0.1);
+                border-radius: var(--border-radius);
+                padding: 25px;
+                margin: 30px 0;
+                border: 1px solid var(--border-dark);
+            }
+
+            .registration-benefits h3 {
+                color: var(--gold-dark);
+                margin-bottom: 15px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .benefits-list {
+                list-style: none;
+                padding: 0;
+            }
+
+            .benefits-list li {
+                padding: 8px 0;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .benefits-list li i {
+                color: var(--success-dark);
+            }
+
+            .user-testimonials {
+                margin: 30px 0;
+            }
+
+            .user-testimonials h3 {
+                color: var(--gold-dark);
+                margin-bottom: 15px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .testimonial {
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: var(--border-radius);
+                padding: 15px;
+                margin-bottom: 15px;
+                border: 1px solid var(--border-dark);
+            }
+
+            .testimonial-content {
+                font-style: italic;
+                margin-bottom: 10px;
+                line-height: 1.5;
+            }
+
+            .testimonial-author {
+                font-size: 0.9rem;
+                opacity: 0.8;
+            }
+
+            .registration-progress {
+                margin-bottom: 30px;
+            }
+
+            .progress-steps {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+            }
+
+            .step {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+                opacity: 0.5;
+                transition: opacity 0.3s ease;
+            }
+
+            .step.active {
+                opacity: 1;
+            }
+
+            .step-number {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.1);
+                border: 2px solid var(--border-dark);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                transition: all 0.3s ease;
+            }
+
+            .step.active .step-number {
+                background: var(--gold-dark);
+                color: var(--primary-dark);
+                border-color: var(--gold-dark);
+                box-shadow: var(--gold-glow);
+            }
+
+            .step-label {
+                font-size: 0.9rem;
+                text-align: center;
+            }
+
+            .form-step {
+                display: none;
+            }
+
+            .form-step.active {
+                display: block;
+                animation: fadeIn 0.5s ease;
+            }
+
+            .step-header {
+                margin-bottom: 25px;
+                text-align: center;
+            }
+
+            .step-header h3 {
+                color: var(--gold-dark);
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .plan-selection {
+                margin: 30px 0;
+            }
+
+            .plan-toggle {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .toggle-btn {
+                flex: 1;
+                padding: 15px;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid var(--border-dark);
+                border-radius: var(--border-radius);
+                color: inherit;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .toggle-btn.active {
+                background: var(--gold-dark);
+                color: var(--primary-dark);
+                border-color: var(--gold-dark);
+                box-shadow: var(--gold-glow);
+            }
+
+            .plan-options {
+                display: none;
+            }
+
+            .plan-options.active {
+                display: block;
+            }
+
+            .plans-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .plan-card {
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: var(--border-radius);
+                padding: 25px;
+                border: 1px solid var(--border-dark);
+                cursor: pointer;
+                transition: all 0.3s ease;
+                position: relative;
+            }
+
+            .plan-card:hover {
+                transform: translateY(-5px);
+                border-color: var(--gold-dark);
+            }
+
+            .plan-card.selected {
+                border-color: var(--gold-dark);
+                background: rgba(255, 215, 0, 0.1);
+                box-shadow: var(--gold-glow);
+            }
+
+            .plan-card.popular {
+                border-color: var(--accent-dark);
+            }
+
+            .popular-badge {
+                position: absolute;
+                top: -10px;
+                right: 20px;
+                background: var(--accent-dark);
+                color: var(--primary-dark);
+                padding: 5px 15px;
+                border-radius: 20px;
+                font-size: 0.8rem;
+                font-weight: bold;
+            }
+
+            .plan-header {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .plan-header h4 {
+                margin: 0 0 10px 0;
+                color: var(--gold-dark);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .plan-price {
+                font-size: 2rem;
+                font-weight: bold;
+                color: var(--gold-dark);
+                display: flex;
+                align-items: baseline;
+                justify-content: center;
+                gap: 5px;
+            }
+
+            .plan-features {
+                list-style: none;
+                padding: 0;
+                margin: 0 0 20px 0;
+            }
+
+            .plan-features li {
+                padding: 8px 0;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .plan-features li:last-child {
+                border-bottom: none;
+            }
+
+            .plan-features li i {
+                color: var(--success-dark);
+            }
+
+            .domain-section {
+                margin: 30px 0;
+            }
+
+            .domain-section h4 {
+                color: var(--gold-dark);
+                margin-bottom: 15px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .domain-search .input-group {
+                display: flex;
+                gap: 10px;
+            }
+
+            .domain-search .form-control {
+                flex: 1;
+            }
+
+            .domain-extension {
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid var(--border-dark);
+                border-radius: var(--border-radius);
+                color: inherit;
+                padding: 0 15px;
+                min-width: 100px;
+            }
+
+            .domain-result {
+                margin-top: 15px;
+                min-height: 50px;
+            }
+
+            .loading-domain,
+            .loading-ref {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: var(--secondary-dark);
+            }
+
+            .domain-available,
+            .domain-taken,
+            .domain-selected {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 15px;
+                border-radius: var(--border-radius);
+                background: rgba(255, 255, 255, 0.05);
+            }
+
+            .domain-available {
+                border-left: 3px solid var(--success-dark);
+            }
+
+            .domain-taken {
+                border-left: 3px solid var(--danger-dark);
+            }
+
+            .domain-selected {
+                border-left: 3px solid var(--gold-dark);
+            }
+
+            .domain-suggestions ul {
+                list-style: none;
+                padding: 0;
+                margin: 10px 0 0 0;
+            }
+
+            .domain-suggestions li {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .domain-suggestions li:last-child {
+                border-bottom: none;
+            }
+
+            .summary-card {
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: var(--border-radius);
+                padding: 20px;
+                margin: 20px 0;
+                border: 1px solid var(--border-dark);
+            }
+
+            .summary-header {
+                margin-bottom: 15px;
+            }
+
+            .summary-header h4 {
+                color: var(--gold-dark);
+                margin: 0;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .summary-content {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .summary-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .summary-item:last-child {
+                border-bottom: none;
+            }
+
+            .summary-item.total {
+                font-size: 1.2rem;
+                font-weight: bold;
+                color: var(--gold-dark);
+                padding-top: 15px;
+                border-top: 2px solid var(--border-dark);
+            }
+
+            .discount-badge {
+                background: var(--success-dark);
+                color: var(--primary-dark);
+                padding: 2px 8px;
+                border-radius: 10px;
+                font-size: 0.8rem;
+                margin-right: 5px;
+            }
+
+            .payment-methods {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .payment-method {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                padding: 15px;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid var(--border-dark);
+                border-radius: var(--border-radius);
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .payment-method.active {
+                background: rgba(255, 215, 0, 0.1);
+                border-color: var(--gold-dark);
+            }
+
+            .payment-method i {
+                font-size: 1.5rem;
+            }
+
+            .payment-form {
+                display: none;
+            }
+
+            .payment-form.active {
+                display: block;
+                animation: fadeIn 0.3s ease;
+            }
+
+            .card-icons {
+                display: flex;
+                gap: 10px;
+                margin-right: 10px;
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            .referral-result {
+                margin-top: 10px;
+                min-height: 30px;
+            }
+
+            .ref-valid,
+            .ref-invalid {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px;
+                border-radius: var(--border-radius);
+                background: rgba(255, 255, 255, 0.05);
+            }
+
+            .ref-valid {
+                border-left: 3px solid var(--success-dark);
+            }
+
+            .ref-invalid {
+                border-left: 3px solid var(--danger-dark);
+            }
+
+            .final-step {
+                margin: 30px 0;
+            }
+
+            .verification-notice {
+                background: rgba(0, 243, 255, 0.1);
+                border-radius: var(--border-radius);
+                padding: 20px;
+                margin-bottom: 20px;
+                border: 1px solid var(--secondary-dark);
+                display: flex;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .verification-notice i {
+                color: var(--secondary-dark);
+                font-size: 1.5rem;
+                margin-top: 3px;
+            }
+
+            .activation-info {
+                margin-top: 15px;
+                text-align: center;
+            }
+
+            .activation-info p {
+                margin: 5px 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                opacity: 0.8;
+            }
+
+            .success-modal .modal-content {
+                text-align: center;
+                max-width: 450px;
+            }
+
+            .success-icon {
+                font-size: 5rem;
+                color: var(--success-dark);
+                margin-bottom: 20px;
+            }
+
+            .success-content h3 {
+                color: var(--gold-dark);
+                margin-bottom: 15px;
+            }
+
+            .success-details {
+                margin: 20px 0;
+                text-align: right;
+            }
+
+            .success-details p {
+                margin: 10px 0;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                justify-content: flex-end;
+            }
+
+            .success-countdown {
+                margin: 20px 0;
+                font-size: 1.1rem;
+                color: var(--gold-dark);
+            }
+
+            .modal-actions {
+                margin-top: 25px;
+            }
+
+            .step-navigation {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 30px;
+                padding-top: 20px;
+                border-top: 1px solid var(--border-dark);
+            }
+
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

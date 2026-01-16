@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGEND HOSTING - استضافة ويب خارقة</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body class="dark-mode">
+    <!-- لوحة التحميل -->
+    <div class="loading-screen">
+        <div class="loader">
+            <div class="crown">
+                <i class="fas fa-crown"></i>
+            </div>
+            <p>LEGEND HOSTING جاري التحميل...</p>
+        </div>
+    </div>
+
+    <!-- زر تبديل الوضع -->
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h1>LEGEND<span>HOSTING</span></h1>
+                </div>
+                
+                <div class="nav-menu">
+                    <ul class="nav-links">
+                        <li><a href="#home" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
+                        <li><a href="#features"><i class="fas fa-star"></i> المميزات</a></li>
+                        <li><a href="#plans"><i class="fas fa-tags"></i> الخطط</a></li>
+                        <li><a href="#comparison"><i class="fas fa-balance-scale"></i> المقارنة</a></li>
+                        <li><a href="#founders"><i class="fas fa-users"></i> المؤسسون</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-comments"></i> آراء العملاء</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-actions">
+                    <a href="login.html" class="btn btn-outline">
+                        <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+                    </a>
+                    <a href="register.html" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> ابدأ مجانًا
+                    </a>
+                </div>
+                
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-bg">
+            <div class="floating-element el1"></div>
+            <div class="floating-element el2"></div>
+            <div class="floating-element el3"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge"><i class="fas fa-bolt"></i> الأسرع في العالم العربي</span>
+                </div>
+                
+                <h2 class="hero-title">
+                    استضافة <span class="highlight">خارقة</span> 
+                    <br>لمواقع <span class="highlight">استثنائية</span>
+                </h2>
+                
+                <p class="hero-description">
+                    Legend Hosting يوفر لك بيئة استضافة متطورة تجمع بين أحدث التقنيات العالمية 
+                    وواجهة عربية سهلة الاستخدام. سرعة فائقة، أمان متقدم، ودعم فني على مدار الساعة.
+                </p>
+                
+                <div class="hero-actions">
+                    <a href="#plans" class="btn btn-primary btn-large">
+                        <i class="fas fa-play-circle"></i> ابدأ الآن
+                    </a>
+                    <a href="#features" class="btn btn-outline btn-large">
+                        <i class="fas fa-play"></i> شاهد الفيديو التعريفي
+                    </a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="99.9">99.9</div>
+                        <div class="stat-label">نسبة تشغيل</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="12400">12,400+</div>
+                        <div class="stat-label">عميل راضي</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="24">24/7</div>
+                        <div class="stat-label">دعم فني</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="0.3">0.3s</div>
+                        <div class="stat-label">سرعة تحميل</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="dashboard-preview">
+                    <div class="dashboard-header">
+                        <div class="dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div class="dashboard-title">لوحة تحكم Legend</div>
+                    </div>
+                    <div class="dashboard-content">
+                        <div class="metric">
+                            <i class="fas fa-server"></i>
+                            <span>الأداء: <strong>100%</strong></span>
+                        </div>
+                        <div class="metric">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>الأمان: <strong>ممتاز</strong></span>
+                        </div>
+                        <div class="metric">
+                            <i class="fas fa-bolt"></i>
+                            <span>السرعة: <strong>0.3s</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">لماذا <span>LEGEND HOSTING</span>؟</h2>
+                <p class="section-subtitle">نقدم لك مجموعة من المميزات الخارقة التي تجعلنا الأفضل</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">سرعة خارقة</h3>
+                    <p class="feature-description">
+                        خوادم SSD NVMe مع شبكة CDN عالمية تضمن سرعة تحميل أقل من 0.3 ثانية.
+                    </p>
+                    <div class="feature-badge">الأسرع</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">أمان متقدم</h3>
+                    <p class="feature-description">
+                        نظام أمان متعدد الطبقات مع جدران حماية ذكية ومراقبة مستمرة.
+                    </p>
+                    <div class="feature-badge">محمي</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="feature-title">دعم فني 24/7</h3>
+                    <p class="feature-description">
+                        فريق دعم عربي متخصص متاح على مدار الساعة عبر جميع قنوات التواصل.
+                    </p>
+                    <div class="feature-badge">متاح دائمًا</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="feature-title">مترجم بالكامل</h3>
+                    <p class="feature-description">
+                        واجهة مستخدم عربية كاملة مع لوحة تحكم cPanel معربة بالكامل.
+                    </p>
+                    <div class="feature-badge">عربي 100%</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="feature-title">نقل مجاني</h3>
+                    <p class="feature-description">
+                        نقل موقعك مجانًا من أي مضيف آخر بدون أي توقف في الخدمة.
+                    </p>
+                    <div class="feature-badge">مجاني</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="feature-title">ضمان استرداد</h3>
+                    <p class="feature-description">
+                        ضمان استرداد الأموال خلال 30 يومًا إذا لم تكن راضيًا عن خدماتنا.
+                    </p>
+                    <div class="feature-badge">مضمون</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section id="plans" class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">خطط استضافة <span>خارقة</span></h2>
+                <p class="section-subtitle">اختر الخطة التي تناسب احتياجاتك</p>
+            </div>
+            
+            <div class="pricing-tabs">
+                <button class="pricing-tab active" data-period="monthly">شهري</button>
+                <button class="pricing-tab" data-period="yearly">سنوي <span class="discount">وفر 30%</span></button>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="plan-name">الأساسية</h3>
+                        <div class="plan-price">
+                            <span class="currency">$</span>
+                            <span class="amount">4.99</span>
+                            <span class="period">/شهر</span>
+                        </div>
+                        <p class="plan-description">مثالية للمواقع الشخصية</p>
+                    </div>
+                    
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> 10GB مساحة SSD</li>
+                        <li><i class="fas fa-check"></i> 100GB نقل بيانات</li>
+                        <li><i class="fas fa-check"></i> 10 حسابات بريد</li>
+                        <li><i class="fas fa-check"></i> SSL مجاني</li>
+                        <li><i class="fas fa-check"></i> نسخ احتياطي أسبوعي</li>
+                        <li><i class="fas fa-times"></i> دعم متميز</li>
+                    </ul>
+                    
+                    <a href="register.html" class="btn btn-outline btn-block">اختر الخطة</a>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge">الأكثر طلبًا</div>
+                    <div class="pricing-header">
+                        <h3 class="plan-name">المتطورة</h3>
+                        <div class="plan-price">
+                            <span class="currency">$</span>
+                            <span class="amount">9.99</span>
+                            <span class="period">/شهر</span>
+                        </div>
+                        <p class="plan-description">مثالية للشركات الصغيرة</p>
+                    </div>
+                    
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> 50GB مساحة NVMe</li>
+                        <li><i class="fas fa-check"></i> نقل بيانات غير محدود</li>
+                        <li><i class="fas fa-check"></i> بريد إلكتروني غير محدود</li>
+                        <li><i class="fas fa-check"></i> SSL مجاني</li>
+                        <li><i class="fas fa-check"></i> نسخ احتياطي يومي</li>
+                        <li><i class="fas fa-check"></i> دعم متميز</li>
+                    </ul>
+                    
+                    <a href="register.html" class="btn btn-primary btn-block">اختر الخطة</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="plan-name">الخارقة</h3>
+                        <div class="plan-price">
+                            <span class="currency">$</span>
+                            <span class="amount">19.99</span>
+                            <span class="period">/شهر</span>
+                        </div>
+                        <p class="plan-description">مثالية للشركات الكبيرة</p>
+                    </div>
+                    
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> 100GB مساحة NVMe</li>
+                        <li><i class="fas fa-check"></i> نقل بيانات غير محدود</li>
+                        <li><i class="fas fa-check"></i> بريد إلكتروني غير محدود</li>
+                        <li><i class="fas fa-check"></i> SSL متقدم</li>
+                        <li><i class="fas fa-check"></i> نسخ احتياطي يومي</li>
+                        <li><i class="fas fa-check"></i> دعم فوري</li>
+                        <li><i class="fas fa-check"></i> خادم VPS خاص</li>
+                    </ul>
+                    
+                    <a href="register.html" class="btn btn-outline btn-block">اختر الخطة</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="comparison" class="comparison-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">لماذا نحن <span>الأفضل</span>؟</h2>
+                <p class="section-subtitle">مقارنة بين Legend Hosting والمنافسين</p>
+            </div>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الميزة</th>
+                            <th class="legend-col">Legend Hosting</th>
+                            <th>Avox Hosting</th>
+                            <th>Hostinger</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>نوع التخزين</td>
+                            <td class="legend-col"><i class="fas fa-check"></i> SSD NVMe</td>
+                            <td><i class="fas fa-check"></i> SSD</td>
+                            <td><i class="fas fa-check"></i> SSD</td>
+                        </tr>
+                        <tr>
+                            <td>الدعم الفني</td>
+                            <td class="legend-col"><i class="fas fa-check"></i> 24/7 عربي مباشر</td>
+                            <td><i class="fas fa-check"></i> 24/7</td>
+                            <td><i class="fas fa-check"></i> 24/7</td>
+                        </tr>
+                        <tr>
+                            <td>النسخ الاحتياطي</td>
+                            <td class="legend-col"><i class="fas fa-check"></i> يومي + 30 يوم استرجاع</td>
+                            <td><i class="fas fa-check"></i> أسبوعي</td>
+                            <td><i class="fas fa-check"></i> أسبوعي</td>
+                        </tr>
+                        <tr>
+                            <td>شهادة SSL</td>
+                            <td class="legend-col"><i class="fas fa-check"></i> مجانية مدى الحياة</td>
+                            <td><i class="fas fa-check"></i> مجانية للسنة الأولى</td>
+                            <td><i class="fas fa-check"></i> مجانية</td>
+                        </tr>
+                        <tr>
+                            <td>الواجهة العربية</td>
+                            <td class="legend-col"><i class="fas fa-check"></i> كاملة 100%</td>
+                            <td><i class="fas fa-check"></i> كاملة</td>
+                            <td><i class="fas fa-times"></i> جزئية</td>
+                        </tr>
+                        <tr>
+                            <td>ضمان الوقت</td>
+                            <td class="legend-col"><i class="fas fa-check"></i> 99.9% مع تعويض</td>
+                            <td><i class="fas fa-check"></i> 99.9%</td>
+                            <td><i class="fas fa-check"></i> 99.9%</td>
+                        </tr>
+                        <tr>
+                            <td>السعر الشهري</td>
+                            <td class="legend-col"><strong>$4.99</strong></td>
+                            <td><strong>$5.99</strong></td>
+                            <td><strong>$6.99</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founders Section -->
+    <section id="founders" class="founders-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">مؤسسو <span>Legend Hosting</span></h2>
+                <p class="section-subtitle">الخبراء الذين يقفون خوارزمية النجاح</p>
+            </div>
+            
+            <div class="founders-grid">
+                <div class="founder-card">
+                    <div class="founder-avatar sba">
+                        <span>SBA</span>
+                    </div>
+                    <h3 class="founder-name">SBA</h3>
+                    <p class="founder-role">المؤسس والرئيس التنفيذي</p>
+                    <p class="founder-bio">
+                        أكثر من 12 عامًا من الخبرة في إدارة البنية التحتية للخوادم وتطوير حلول الاستضافة المتقدمة.
+                    </p>
+                    <div class="founder-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="founder-card">
+                    <div class="founder-avatar vodka">
+                        <span>VK</span>
+                    </div>
+                    <h3 class="founder-name">Vodka</h3>
+                    <p class="founder-role">المؤسس والمدير التقني</p>
+                    <p class="founder-bio">
+                        خبير أمن سيبراني معتمد، متخصص في أنظمة الحماية المتقدمة وتحسين أداء الخوادم.
+                    </p>
+                    <div class="founder-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">آراء <span>عملائنا</span></h2>
+                <p class="section-subtitle">ماذا يقولون عن Legend Hosting</p>
+            </div>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                        "أفضل است hosting عربي جربته! السرعة خيالية والدعم الفني سريع الاستجابة."
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://i.pravatar.cc/150?img=1" alt="عميل">
+                        </div>
+                        <div class="author-info">
+                            <h4>أحمد محمد</h4>
+                            <p>مالك موقع تجاري</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                        "نقلت موقعي من استضافة عالمية إلى Legend Hosting والفرق كبير في السرعة والدعم العربي."
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://i.pravatar.cc/150?img=2" alt="عميل">
+                        </div>
+                        <div class="author-info">
+                            <h4>سارة العتيبي</h4>
+                            <p>مدونة تقنية</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial-text">
+                        "لوحة التحكم العربية والسرعة الفائقة جعلت تجربتي ممتازة. أنصح بها بشدة."
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://i.pravatar.cc/150?img=3" alt="عميل">
+                        </div>
+                        <div class="author-info">
+                            <h4>خالد الزهراني</h4>
+                            <p>مطور ويب</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">جاهز لبدء رحلتك مع <span>Legend Hosting</span>؟</h2>
+                <p class="cta-description">
+                    انضم إلى أكثر من 12,400 عميل راضٍ عن خدماتنا. ابدأ الآن واستمتع بأفضل تجربة استضافة.
+                </p>
+                <div class="cta-actions">
+                    <a href="register.html" class="btn btn-primary btn-large">
+                        <i class="fas fa-rocket"></i> ابدأ مجانًا
+                    </a>
+                    <a href="#contact" class="btn btn-outline btn-large">
+                        <i class="fas fa-question-circle"></i> تواصل معنا
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>LEGEND HOSTING</h3>
+                    </div>
+                    <p class="footer-description">
+                        نقدم حلول استضافة ويب خارقة تجمع بين التكنولوجيا المتطورة والخدمة العربية المتميزة.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="#features"><i class="fas fa-chevron-left"></i> المميزات</a></li>
+                        <li><a href="#plans"><i class="fas fa-chevron-left"></i> الخطط</a></li>
+                        <li><a href="#comparison"><i class="fas fa-chevron-left"></i> المقارنة</a></li>
+                        <li><a href="#founders"><i class="fas fa-chevron-left"></i> المؤسسون</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">الدعم الفني</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> مركز المساعدة</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الأسئلة الشائعة</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الدعم الفني</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> حالة الخدمة</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">اتصل بنا</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> الرياض، السعودية</p>
+                        <p><i class="fas fa-phone"></i> 9200XXXXX</p>
+                        <p><i class="fas fa-envelope"></i> support@legend-hosting.com</p>
+                        <p><i class="fas fa-clock"></i> 24/7 الدعم متاح</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>© 2024 LEGEND HOSTING. جميع الحقوق محفوظة. | صمم بـ ❤️ بواسطة SBA & Vodka</p>
+                </div>
+                <div class="footer-badges">
+                    <span class="badge"><i class="fas fa-shield-alt"></i> آمن 100%</span>
+                    <span class="badge"><i class="fas fa-bolt"></i> سريع</span>
+                    <span class="badge"><i class="fas fa-headset"></i> دعم 24/7</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</body>
+</html>
