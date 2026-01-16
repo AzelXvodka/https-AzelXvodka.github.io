@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - LEGEND HOSTING</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dark-mode">
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader">
+            <div class="crown">
+                <i class="fas fa-crown"></i>
+            </div>
+            <p>جاري تحميل لوحة التحكم...</p>
+        </div>
+    </div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h2>LEGEND<span>DASH</span></h2>
+                </div>
+                <button class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="user-profile">
+                <div class="user-avatar">
+                    <img src="https://i.pravatar.cc/150?img=8" alt="المستخدم">
+                    <span class="user-status online"></span>
+                </div>
+                <div class="user-info">
+                    <h4 class="username">SBA & Vodka</h4>
+                    <p class="user-email">admin@legend-hosting.com</p>
+                    <div class="user-badge">
+                        <i class="fas fa-crown"></i> مؤسس
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="nav-menu">
+                    <li>
+                        <a href="#overview" class="nav-item active">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>نظرة عامة</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#websites" class="nav-item">
+                            <i class="fas fa-globe"></i>
+                            <span>مواقعي</span>
+                            <span class="nav-badge">5</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#domains" class="nav-item">
+                            <i class="fas fa-link"></i>
+                            <span>النطاقات</span>
+                            <span class="nav-badge">3</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#emails" class="nav-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>البريد</span>
+                            <span class="nav-badge">12</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#databases" class="nav-item">
+                            <i class="fas fa-database"></i>
+                            <span>قواعد البيانات</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#files" class="nav-item">
+                            <i class="fas fa-folder"></i>
+                            <span>الملفات</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#security" class="nav-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>الأمان</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#analytics" class="nav-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>التحليلات</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#backups" class="nav-item">
+                            <i class="fas fa-history"></i>
+                            <span>النسخ الاحتياطي</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#settings" class="nav-item">
+                            <i class="fas fa-cog"></i>
+                            <span>الإعدادات</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="sidebar-footer">
+                    <div class="user-points">
+                        <i class="fas fa-trophy"></i>
+                        <span>نقاط: <strong>1,250</strong></span>
+                    </div>
+                    <div class="user-level">
+                        <div class="level-bar">
+                            <div class="level-progress" style="width: 65%"></div>
+                        </div>
+                        <span>المستوى: <strong>8</strong></span>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Top Bar -->
+            <header class="dashboard-topbar">
+                <div class="topbar-left">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="ابحث في لوحة التحكم...">
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="notifications">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-count">3</span>
+                        </button>
+                        <div class="notification-dropdown">
+                            <div class="notification-header">
+                                <h4>التنبيهات</h4>
+                                <button class="mark-all-read">تعيين الكل كمقروء</button>
+                            </div>
+                            <div class="notification-list">
+                                <div class="notification-item unread">
+                                    <i class="fas fa-server notification-icon success"></i>
+                                    <div class="notification-content">
+                                        <p>الخادم يعمل بشكل طبيعي</p>
+                                        <span class="notification-time">منذ 5 دقائق</span>
+                                    </div>
+                                </div>
+                                <div class="notification-item unread">
+                                    <i class="fas fa-shield-alt notification-icon warning"></i>
+                                    <div class="notification-content">
+                                        <p>تم اكتشاف محاولة دخول مشبوهة</p>
+                                        <span class="notification-time">منذ ساعة</span>
+                                    </div>
+                                </div>
+                                <div class="notification-item">
+                                    <i class="fas fa-backup notification-icon info"></i>
+                                    <div class="notification-content">
+                                        <p>تم إنشاء نسخة احتياطية جديدة</p>
+                                        <span class="notification-time">منذ يوم</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions">
+                        <button class="quick-action-btn" title="إنشاء موقع جديد">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <button class="quick-action-btn" title="النسخ الاحتياطي">
+                            <i class="fas fa-save"></i>
+                        </button>
+                        <button class="quick-action-btn" title="الدعم الفني">
+                            <i class="fas fa-headset"></i>
+                        </button>
+                    </div>
+
+                    <div class="user-menu">
+                        <button class="user-menu-btn">
+                            <img src="https://i.pravatar.cc/150?img=8" alt="المستخدم">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-menu-dropdown">
+                            <a href="#profile"><i class="fas fa-user"></i> الملف الشخصي</a>
+                            <a href="#billing"><i class="fas fa-credit-card"></i> الفواتير</a>
+                            <a href="#referrals"><i class="fas fa-user-friends"></i> الإحالات</a>
+                            <div class="menu-divider"></div>
+                            <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Welcome Banner -->
+                <section class="welcome-banner" id="overview">
+                    <div class="welcome-content">
+                        <h1>مرحباً بعودتك، <span class="highlight">SBA & Vodka</span> 👑</h1>
+                        <p>لوحة تحكم Legend مصممة لتجربة استضافة خارقة. كل شيء تحت السيطرة.</p>
+                        
+                        <div class="welcome-stats">
+                            <div class="stat-card">
+                                <i class="fas fa-bolt"></i>
+                                <div>
+                                    <h3>100%</h3>
+                                    <p>الأداء</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <h3>ممتاز</h3>
+                                    <p>الحماية</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h3>99.9%</h3>
+                                    <p>التشغيل</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="welcome-actions">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-rocket"></i> إنشاء موقع جديد
+                        </button>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-magic"></i> التحسين التلقائي
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Quick Stats -->
+                <section class="quick-stats-section">
+                    <h2 class="section-title">إحصائيات سريعة</h2>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-box primary">
+                            <div class="stat-icon">
+                                <i class="fas fa-hdd"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>25.4 GB</h3>
+                                <p>المساحة المستخدمة</p>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%"></div>
+                                </div>
+                                <span class="stat-detail">65% من 40 GB</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-box success">
+                            <div class="stat-icon">
+                                <i class="fas fa-wifi"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>124 GB</h3>
+                                <p>نقل البيانات</p>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 42%"></div>
+                                </div>
+                                <span class="stat-detail">42% من 300 GB</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-box warning">
+                            <div class="stat-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>8/12</h3>
+                                <p>حسابات البريد</p>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 67%"></div>
+                                </div>
+                                <span class="stat-detail">67% من السعة</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-box danger">
+                            <div class="stat-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>5</h3>
+                                <p>قواعد البيانات</p>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 50%"></div>
+                                </div>
+                                <span class="stat-detail">50% من السعة</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Websites Section -->
+                <section class="websites-section" id="websites">
+                    <div class="section-header">
+                        <h2 class="section-title">مواقعي</h2>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i> إضافة موقع
+                        </button>
+                    </div>
+                    
+                    <div class="websites-grid">
+                        <div class="website-card">
+                            <div class="website-header">
+                                <div class="website-icon">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <div class="website-actions">
+                                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                            <h3 class="website-name">متجر إلكتروني</h3>
+                            <p class="website-url">mystore.legend.com</p>
+                            <div class="website-stats">
+                                <span class="stat"><i class="fas fa-eye"></i> 1,234 زيارة</span>
+                                <span class="stat"><i class="fas fa-hdd"></i> 4.2 GB</span>
+                            </div>
+                            <div class="website-status online">
+                                <i class="fas fa-circle"></i> يعمل
+                            </div>
+                        </div>
+                        
+                        <div class="website-card">
+                            <div class="website-header">
+                                <div class="website-icon">
+                                    <i class="fas fa-blog"></i>
+                                </div>
+                                <div class="website-actions">
+                                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                            <h3 class="website-name">مدونة شخصية</h3>
+                            <p class="website-url">blog.legend.com</p>
+                            <div class="website-stats">
+                                <span class="stat"><i class="fas fa-eye"></i> 567 زيارة</span>
+                                <span class="stat"><i class="fas fa-hdd"></i> 1.8 GB</span>
+                            </div>
+                            <div class="website-status online">
+                                <i class="fas fa-circle"></i> يعمل
+                            </div>
+                        </div>
+                        
+                        <div class="website-card">
+                            <div class="website-header">
+                                <div class="website-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div class="website-actions">
+                                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                            <h3 class="website-name">موقع الشركة</h3>
+                            <p class="website-url">company.legend.com</p>
+                            <div class="website-stats">
+                                <span class="stat"><i class="fas fa-eye"></i> 890 زيارة</span>
+                                <span class="stat"><i class="fas fa-hdd"></i> 3.5 GB</span>
+                            </div>
+                            <div class="website-status warning">
+                                <i class="fas fa-exclamation-circle"></i> يحتاج تحديث
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Charts Section -->
+                <section class="charts-section" id="analytics">
+                    <div class="charts-grid">
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3>حركة الزوار</h3>
+                                <select class="chart-period">
+                                    <option>أسبوع</option>
+                                    <option>شهر</option>
+                                    <option>سنة</option>
+                                </select>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="visitorsChart"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3>استخدام الموارد</h3>
+                                <select class="chart-period">
+                                    <option>24 ساعة</option>
+                                    <option>أسبوع</option>
+                                    <option>شهر</option>
+                                </select>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="resourcesChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- AI Assistant -->
+                <section class="ai-assistant-section">
+                    <div class="ai-header">
+                        <div class="ai-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="ai-info">
+                            <h3>مساعد Legend الذكي</h3>
+                            <p>مستعد لمساعدتك في تحسين أداء مواقعك</p>
+                        </div>
+                        <div class="ai-status online">
+                            <i class="fas fa-circle"></i> متصل
+                        </div>
+                    </div>
+                    
+                    <div class="ai-suggestions">
+                        <div class="suggestion-card">
+                            <i class="fas fa-bolt"></i>
+                            <div>
+                                <h4>تحسين السرعة</h4>
+                                <p>موقعك يمكن تحميله أسرع بنسبة 40%</p>
+                                <button class="btn btn-sm btn-primary">تطبيق</button>
+                            </div>
+                        </div>
+                        
+                        <div class="suggestion-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>تعزيز الأمان</h4>
+                                <p>توجد 3 نقاط ضعف تحتاج معالجة</p>
+                                <button class="btn btn-sm btn-primary">إصلاح</button>
+                            </div>
+                        </div>
+                        
+                        <div class="suggestion-card">
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <h4>تحسين SEO</h4>
+                                <p>15 توصية لتحسين ترتيب محركات البحث</p>
+                                <button class="btn btn-sm btn-primary">عرض</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ai-chat">
+                        <div class="chat-header">
+                            <h4>محادثة مع المساعد</h4>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="message ai">
+                                <div class="message-content">
+                                    مرحباً! أنا مساعد Legend. كيف يمكنني مساعدتك اليوم؟
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" placeholder="اكتب رسالتك هنا...">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recent Activity -->
+                <section class="activity-section">
+                    <div class="section-header">
+                        <h2 class="section-title">النشاط الأخير</h2>
+                    </div>
+                    
+                    <div class="activity-timeline">
+                        <div class="activity-item">
+                            <div class="activity-icon success">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>تم إنشاء نسخة احتياطية</h4>
+                                <p>تم إنشاء نسخة احتياطية تلقائية لجميع المواقع</p>
+                                <span class="activity-time">منذ 2 ساعة</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon warning">
+                                <i class="fas fa-exclamation"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>تحذير أمان</h4>
+                                <p>تم اكتشاف محاولة دخول غير مصرح بها</p>
+                                <span class="activity-time">منذ 5 ساعات</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon info">
+                                <i class="fas fa-info"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>تحديث النظام</h4>
+                                <p>تم تحديث نظام إدارة المحتوى إلى آخر نسخة</p>
+                                <span class="activity-time">منذ يوم</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon primary">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>موقع جديد</h4>
+                                <p>تم إضافة موقع "المتجر الإلكتروني"</p>
+                                <span class="activity-time">منذ 3 أيام</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- System Status -->
+                <section class="status-section" id="status">
+                    <div class="section-header">
+                        <h2 class="section-title">حالة النظام</h2>
+                        <div class="status-overview">
+                            <span class="status-badge online">
+                                <i class="fas fa-circle"></i> جميع الأنظمة تعمل
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="status-grid">
+                        <div class="status-card">
+                            <div class="status-header">
+                                <h4><i class="fas fa-server"></i> الخوادم</h4>
+                                <span class="status-indicator online"></span>
+                            </div>
+                            <p>جميع الخوادم تعمل بشكل طبيعي</p>
+                            <div class="status-metrics">
+                                <span>الحمل: 45%</span>
+                                <span>الذاكرة: 68%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="status-card">
+                            <div class="status-header">
+                                <h4><i class="fas fa-network-wired"></i> الشبكة</h4>
+                                <span class="status-indicator online"></span>
+                            </div>
+                            <p>الاتصال مستقر وسريع</p>
+                            <div class="status-metrics">
+                                <span>السرعة: 1Gbps</span>
+                                <span>الإتاحة: 100%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="status-card">
+                            <div class="status-header">
+                                <h4><i class="fas fa-database"></i> قواعد البيانات</h4>
+                                <span class="status-indicator online"></span>
+                            </div>
+                            <p>جميع قواعد البيانات نشطة</p>
+                            <div class="status-metrics">
+                                <span>الاستعلامات: 124/ث</span>
+                                <span>الحجم: 2.4GB</span>
+                            </div>
+                        </div>
+                        
+                        <div class="status-card">
+                            <div class="status-header">
+                                <h4><i class="fas fa-shield-alt"></i> الحماية</h4>
+                                <span class="status-indicator warning"></span>
+                            </div>
+                            <p>جاري تحديث قواعد الحماية</p>
+                            <div class="status-metrics">
+                                <span>الهجمات: 3/24س</span>
+                                <span>محجوب: 124</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Dashboard Footer -->
+            <footer class="dashboard-footer">
+                <div class="footer-content">
+                    <div class="footer-left">
+                        <p>© 2024 LEGEND HOSTING. جميع الحقوق محفوظة.</p>
+                        <p>الإصدار 2.1.4 | آخر تحديث: اليوم 9:00 ص</p>
+                    </div>
+                    <div class="footer-right">
+                        <a href="#help"><i class="fas fa-question-circle"></i> المساعدة</a>
+                        <a href="#support"><i class="fas fa-headset"></i> الدعم</a>
+                        <a href="#feedback"><i class="fas fa-comment"></i> ملاحظات</a>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script>
+        // Initialize Dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            // Charts
+            const visitorsCtx = document.getElementById('visitorsChart').getContext('2d');
+            const visitorsChart = new Chart(visitorsCtx, {
+                type: 'line',
+                data: {
+                    labels: ['الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت', 'الأحد'],
+                    datasets: [{
+                        label: 'الزوار',
+                        data: [120, 190, 300, 500, 200, 300, 450],
+                        borderColor: '#FFD700',
+                        backgroundColor: 'rgba(255, 215, 0, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+
+            const resourcesCtx = document.getElementById('resourcesChart').getContext('2d');
+            const resourcesChart = new Chart(resourcesCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['المساحة', 'قواعد البيانات', 'البريد', 'النسخ الاحتياطي'],
+                    datasets: [{
+                        data: [65, 15, 10, 10],
+                        backgroundColor: [
+                            '#FFD700',
+                            '#00F3FF',
+                            '#FF00CC',
+                            '#00FF88'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            rtl: true
+                        }
+                    }
+                }
+            });
+
+            // Initialize dashboard components
+            initializeDashboard();
+        });
+
+        function initializeDashboard() {
+            // Toggle sidebar
+            const sidebarToggle = document.querySelector('.sidebar-toggle');
+            const sidebar = document.querySelector('.dashboard-sidebar');
+            
+            if (sidebarToggle && sidebar) {
+                sidebarToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('collapsed');
+                });
+            }
+
+            // Notification dropdown
+            const notificationBtn = document.querySelector('.notification-btn');
+            const notificationDropdown = document.querySelector('.notification-dropdown');
+            
+            if (notificationBtn && notificationDropdown) {
+                notificationBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    notificationDropdown.classList.toggle('show');
+                });
+
+                // Close when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!notificationBtn.contains(e.target) && !notificationDropdown.contains(e.target)) {
+                        notificationDropdown.classList.remove('show');
+                    }
+                });
+            }
+
+            // User menu dropdown
+            const userMenuBtn = document.querySelector('.user-menu-btn');
+            const userMenuDropdown = document.querySelector('.user-menu-dropdown');
+            
+            if (userMenuBtn && userMenuDropdown) {
+                userMenuBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    userMenuDropdown.classList.toggle('show');
+                });
+
+                // Close when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!userMenuBtn.contains(e.target) && !userMenuDropdown.contains(e.target)) {
+                        userMenuDropdown.classList.remove('show');
+                    }
+                });
+            }
+
+            // Mark all notifications as read
+            const markAllReadBtn = document.querySelector('.mark-all-read');
+            if (markAllReadBtn) {
+                markAllReadBtn.addEventListener('click', () => {
+                    document.querySelectorAll('.notification-item.unread').forEach(item => {
+                        item.classList.remove('unread');
+                    });
+                    document.querySelector('.notification-count').textContent = '0';
+                });
+            }
+
+            // AI Assistant chat
+            const aiChatInput = document.querySelector('.ai-chat input');
+            const aiChatSend = document.querySelector('.ai-chat .btn');
+            
+            if (aiChatInput && aiChatSend) {
+                aiChatSend.addEventListener('click', () => {
+                    const message = aiChatInput.value.trim();
+                    if (message) {
+                        // Add user message
+                        const chatMessages = document.querySelector('.chat-messages');
+                        const userMessage = document.createElement('div');
+                        userMessage.className = 'message user';
+                        userMessage.innerHTML = `
+                            <div class="message-content">
+                                ${message}
+                            </div>
+                        `;
+                        chatMessages.appendChild(userMessage);
+                        
+                        // Clear input
+                        aiChatInput.value = '';
+                        
+                        // Simulate AI response
+                        setTimeout(() => {
+                            const aiResponse = document.createElement('div');
+                            aiResponse.className = 'message ai';
+                            aiResponse.innerHTML = `
+                                <div class="message-content">
+                                    فهمت سؤالك. سأقوم بتحليل البيانات وإعطائك أفضل التوصيات...
+                                </div>
+                            `;
+                            chatMessages.appendChild(aiResponse);
+                            chatMessages.scrollTop = chatMessages.scrollHeight;
+                        }, 1000);
+                    }
+                });
+
+                // Send on Enter
+                aiChatInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        aiChatSend.click();
+                    }
+                });
+            }
+
+            // Website card actions
+            document.querySelectorAll('.website-card .action-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const action = btn.querySelector('i').className;
+                    
+                    if (action.includes('fa-trash')) {
+                        if (confirm('هل أنت متأكد من حذف هذا الموقع؟')) {
+                            btn.closest('.website-card').remove();
+                        }
+                    } else if (action.includes('fa-edit')) {
+                        alert('ستفتح نافذة التعديل هنا...');
+                    }
+                });
+            });
+
+            // Quick actions
+            document.querySelectorAll('.quick-action-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const title = btn.getAttribute('title');
+                    showNotification(`تم فتح: ${title}`, 'info');
+                });
+            });
+        }
+
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `dashboard-notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check' : 'info'}"></i>
+                <span>${message}</span>
+                <button class="close-notification">&times;</button>
+            `;
+            
+            // Add to dashboard
+            const dashboardMain = document.querySelector('.dashboard-main');
+            dashboardMain.appendChild(notification);
+            
+            // Close button
+            notification.querySelector('.close-notification').addEventListener('click', () => {
+                notification.remove();
+            });
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
